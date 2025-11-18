@@ -304,6 +304,109 @@ ul.bullet-list-items.bullet-icons li::before {
   top: 0;
 }
 
+/* Per-item svg icons inside the rounded bullet */
+/* ul.bullet-list-items.bullet-icons li.icon-change::before {
+  background-image: url('../../../../public/images/icon-star.svg');
+}
+ul.bullet-list-items.bullet-icons li.icon-products::before {
+  background-image: url('../../../../public/images/icon-tshirt.svg');
+}
+ul.bullet-list-items.bullet-icons li.icon-instant::before {
+  background-image: url('../../../../public/images/qr-code.svg');
+}
+ul.bullet-list-items.bullet-icons li.icon-built::before {
+  background-image: url('../../../../public/images/icon-list.svg');
+}
+ul.bullet-list-items.bullet-icons li.icon-control::before {
+  background-image: url('../../../../public/images/icon-heart.svg');
+} */
+
+/* Also support the numeric class names used in the template so icons match the provided content */
+/* ul.bullet-list-items.bullet-icons li.bullet-icon-1::before {
+  background-image: url('../../../../public/images/icon-star.svg');
+}
+ul.bullet-list-items.bullet-icons li.bullet-icon-2::before {
+  background-image: url('../../../../public/images/icon-tshirt.svg');
+}
+
+/* Use emoji glyphs inside the rounded bullet for the feature items */
+ul.bullet-list-items.bullet-icons li.bullet-icon-1::before,
+ul.bullet-list-items.bullet-icons li.bullet-icon-2::before,
+ul.bullet-list-items.bullet-icons li.bullet-icon-3::before,
+ul.bullet-list-items.bullet-icons li.bullet-icon-4::before,
+ul.bullet-list-items.bullet-icons li.bullet-icon-5::before {
+  background-image: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+ul.bullet-list-items.bullet-icons li.bullet-icon-1::before { content: '✨'; }
+ul.bullet-list-items.bullet-icons li.bullet-icon-2::before { content: '🎨'; }
+ul.bullet-list-items.bullet-icons li.bullet-icon-3::before { content: '🔗'; }
+ul.bullet-list-items.bullet-icons li.bullet-icon-4::before { content: '📱'; }
+ul.bullet-list-items.bullet-icons li.bullet-icon-5::before { content: '🔐'; }
+/* ul.bullet-list-items.bullet-icons li.bullet-icon-3::before {
+  background-image: url('../../../../public/images/qr-code.svg');
+}
+ul.bullet-list-items.bullet-icons li.bullet-icon-4::before {
+  background-image: url('../../../../public/images/icon-list.svg');
+}
+ul.bullet-list-items.bullet-icons li.bullet-icon-5::before {
+  background-image: url('../../../../public/images/icon-heart.svg');
+} */ */
+
+/* Per-item icons: override the ::before background image per feature */
+/* Use the provided emoji icons inside the rounded bullet for these items */
+ul.bullet-list-items.bullet-icons li.icon-change::before {
+  background-image: none;
+  content: '✨';
+  font-size: 20px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ul.bullet-list-items.bullet-icons li.icon-products::before {
+  background-image: none;
+  content: '🎨';
+  font-size: 20px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ul.bullet-list-items.bullet-icons li.icon-instant::before {
+  background-image: none;
+  content: '🔗';
+  font-size: 20px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ul.bullet-list-items.bullet-icons li.icon-built::before {
+  background-image: none;
+  content: '📱';
+  font-size: 20px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ul.bullet-list-items.bullet-icons li.icon-control::before {
+  background-image: none;
+  content: '🔐';
+  font-size: 20px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .about-commodo-section {
   padding: 150px 0 70px;
 }
@@ -571,4 +674,63 @@ ul.bullet-list-items.bullet-icons li::before {
     height: 50px;
     font-size: 18px;
   }
+}
+
+/* Small styling additions for the Our Founders section */
+.about-founders-section {
+  background: #ffffff;
+  padding: 60px 0;
+}
+.about-founders-block .heading-lg {
+  font-size: 34px;
+}
+.about-founders-block p.text-center {
+  color: #55606a;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.founder-card {
+  background: #f8fbfb;
+  border: 1px solid rgba(0,0,0,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  height: 100%;
+}
+.founder-card h5 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.founder-card p {
+  margin: 0;
+  color: #33363b;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 767px) {
+  .about-founders-block .heading-lg {
+    font-size: 28px;
+  }
+  .founder-card {
+    padding: 16px;
+  }
+}
+
+/* Our Factory section styling */
+.about-factory-section .heading-lg {
+  font-size: 36px;
+}
+.about-factory-section p {
+  color: #4b5560;
+}
+.about-factory-section .ratio {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(34,45,77,0.08);
+}
+@media screen and (max-width: 767px) {
+  .about-factory-section { padding-top: 40px; padding-bottom: 40px; }
+  .about-factory-section .heading-lg { font-size: 28px; }
 }
