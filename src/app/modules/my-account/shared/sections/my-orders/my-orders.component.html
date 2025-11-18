@@ -1,0 +1,335 @@
+<section class="pb-80 pt-80 px-lg-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3">
+        <app-account-sidebar />
+      </div>
+      <div class="col-lg-9">
+        <div class="account-body">
+          <div class="sec-title">
+            <h2>{{ "account.my_orders" | translate }}</h2>
+          </div>
+          <div class="account-inner">
+            <div class="table-responsive pt-4">
+              <div class="table-title mb-2">
+                <p>
+                  {{ "account.total" | translate }} 1
+                  {{ "account.products" | translate }}
+                </p>
+              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="flexCheckDefault"
+                        />
+                      </div>
+                    </th>
+                    <th>{{ "account.product_name" | translate }}</th>
+                    <th>{{ "account.category" | translate }}</th>
+                    <th class="text-center">
+                      {{ "account.created" | translate }}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="d-flex form-check align-items-center">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="checkall"
+                        />
+                        <label class="form-check-label ms-4" for="checkall">
+                          <div class="qr-images">
+                            <img
+                              width="80px"
+                              src="images/qr-table.png"
+                              alt=""
+                            />
+                          </div>
+                        </label>
+                      </div>
+                    </td>
+                    <td>Nam bibendum</td>
+                    <td>Mag</td>
+                    <td class="text-center">
+                      <div class="btn btn-outline-primary action-btn-sec">
+                        <a href="#"> {{ "account.view" | translate }} </a>
+                        <span> / </span>
+                        <a [routerLink]="['/account/orders/order-detail', 1]">
+                          {{ "account.edit" | translate }}
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="bs-pagination">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <img
+                          src="images/left-arrow.svg"
+                          alt="pagination-left-arrow"
+                        />
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="active page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <img
+                          src="images/right-arrow.svg"
+                          alt="pagination-right-arrow"
+                        />
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recently Viewed Start -->
+<section class="mb-4 px-lg-5 recently-viewed">
+  <div class="container-fluid">
+    <div class="shop-section-right-area">
+      <div class="mb-2 mb-lg-4 section-header">
+        <h4 class="text-uppercase fs-3 fw-medium">
+          {{ "account.recently_viewed" | translate }}
+        </h4>
+      </div>
+      <div class="shop-section-right-products-area">
+        @if (
+          isLoadingRecentlyViewedProducts() && !recentlyViewedProducts().length
+        ) {
+          <div class="shop-section-right-products-area-block">
+            <app-skelenton />
+            <app-skelenton />
+            <app-skelenton />
+            <app-skelenton />
+            <app-skelenton />
+          </div>
+        } @else {
+          <div
+            [ngClass]="{
+              'shop-section-right-products-area-block':
+                recentlyViewedProducts().length > 0,
+            }"
+          >
+            @for (
+              recentlyViewed of recentlyViewedProducts();
+              track recentlyViewed.id
+            ) {
+              <div
+                class="shop-section-right-products-area-block-box"
+                tabindex="0"
+                (click)="navigateToProduct(recentlyViewed.product_id)"
+                (keyup.enter)="navigateToProduct(recentlyViewed.product_id)"
+                (keydown.space)="navigateToProduct(recentlyViewed.product_id)"
+              >
+                <div class="card border-0 h-100">
+                  <div class="card-green card-top rounded-5 px-0">
+                    <img
+                      [src]="recentlyViewed?.product_images?.image_url"
+                      class="rounded-5 w-100 img-fluid"
+                      [alt]="recentlyViewed?.product_title"
+                    />
+                  </div>
+                  <div class="card-body px-0">
+                    <span
+                      class="d-flex align-items-center justify-content-center rounded-pill icon-wishlist"
+                    >
+                      @if (addingWishlist(recentlyViewed.product_id)) {
+                        <div
+                          class="spinner-border spinner-border-sm"
+                          role="status"
+                        >
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                      } @else {
+                        <a
+                          tabindex="0"
+                          (click)="
+                            addToWishlist(
+                              recentlyViewed.product_id,
+                              recentlyViewed?.isFavorite,
+                              'recently'
+                            );
+                            $event.stopPropagation()
+                          "
+                          (keyup.enter)="
+                            addToWishlist(
+                              recentlyViewed.product_id,
+                              recentlyViewed?.isFavorite,
+                              'recently'
+                            );
+                            $event.stopPropagation()
+                          "
+                          (keydown.space)="
+                            addToWishlist(
+                              recentlyViewed.product_id,
+                              recentlyViewed?.isFavorite,
+                              'recently'
+                            );
+                            $event.stopPropagation()
+                          "
+                        >
+                          <i
+                            class="fa-regular fa-heart"
+                            [ngClass]="{
+                              'fa-solid text-danger':
+                                recentlyViewed?.isFavorite,
+                            }"
+                          ></i>
+                        </a>
+                      }
+                    </span>
+                    <h4 class="card-title">
+                      {{ recentlyViewed?.product_title }}
+                    </h4>
+                    <p class="card-price card-text">
+                      ${{ recentlyViewed?.price?.max_price }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            } @empty {
+              <div class="text-center">
+                <span>{{ "account.not_recently_viewed" | translate }}</span>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hot Items -->
+<section class="hot-Items mb-4 px-lg-5">
+  <div class="container-fluid">
+    <div class="shop-section-right-area">
+      <div class="mb-2 mb-lg-4 section-header">
+        <h4 class="text-uppercase fs-3 fw-medium">
+          {{ "account.hot_items" | translate }}
+        </h4>
+      </div>
+      <div class="shop-section-right-products-area">
+        <div
+          [ngClass]="{
+            'shop-section-right-products-area-block': hotItems().length > 0,
+          }"
+        >
+          @if (isLoadingHotItems() && !hotItems().length) {
+            <div class="shop-section-right-products-area-block">
+              <app-skelenton />
+              <app-skelenton />
+              <app-skelenton />
+              <app-skelenton />
+              <app-skelenton />
+            </div>
+          } @else {
+            @for (hotItem of hotItems(); track hotItem.id) {
+              <div
+                class="shop-section-right-products-area-block-box"
+                tabindex="0"
+                (click)="navigateToProduct(hotItem.product_id)"
+                (keyup.enter)="navigateToProduct(hotItem.product_id)"
+                (keydown.space)="navigateToProduct(hotItem.product_id)"
+              >
+                <div class="card border-0 h-100">
+                  <div class="card-cherry card-top rounded-5 px-0">
+                    <img
+                      [src]="hotItem.product_images.image_url"
+                      class="rounded-5 w-100 img-fluid"
+                      [alt]="hotItem.product_title"
+                    />
+                  </div>
+                  <div class="card-body px-0">
+                    <span
+                      class="d-flex align-items-center justify-content-center rounded-pill icon-wishlist"
+                    >
+                      @if (addingWishlist(hotItem.product_id)) {
+                        <div
+                          class="spinner-border spinner-border-sm"
+                          role="status"
+                        >
+                          <span class="visually-hidden">Loading...</span>
+                        </div>
+                      } @else {
+                        <a
+                          tabindex="0"
+                          (click)="
+                            addToWishlist(
+                              hotItem.product_id,
+                              hotItem?.isFavorite,
+                              'hotItem'
+                            );
+                            $event.stopPropagation()
+                          "
+                          (keyup.enter)="
+                            addToWishlist(
+                              hotItem.product_id,
+                              hotItem?.isFavorite,
+                              'hotItem'
+                            );
+                            $event.stopPropagation()
+                          "
+                          (keydown.space)="
+                            addToWishlist(
+                              hotItem.product_id,
+                              hotItem?.isFavorite,
+                              'hotItem'
+                            );
+                            $event.stopPropagation()
+                          "
+                        >
+                          <i
+                            class="fa-regular fa-heart"
+                            [ngClass]="{
+                              'fa-solid text-danger': hotItem?.isFavorite,
+                            }"
+                          ></i>
+                        </a>
+                      }
+                    </span>
+                    <h4 class="card-title">{{ hotItem.product_title }}</h4>
+                    <p class="card-price card-text">
+                      ${{ hotItem.price.max_price }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            } @empty {
+              <div class="text-center">
+                <span>{{ "account.not_hot_items" | translate }}</span>
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

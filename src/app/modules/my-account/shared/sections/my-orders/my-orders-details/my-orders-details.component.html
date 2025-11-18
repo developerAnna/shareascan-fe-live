@@ -1,0 +1,72 @@
+<section class="pb-80 pt-80 px-lg-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3">
+        <app-account-sidebar />
+      </div>
+      <div class="col-lg-9">
+        <div class="account-body">
+          <div class="mb-4 sec-title">
+            <h2>{{ "account.order_detail" | translate }}</h2>
+          </div>
+          <div class="order-detail">
+            <div class="row">
+              <div class="col-lg-8 card border-0">
+                <div class="card-title">
+                  <h4>{{ "account.product_detail" | translate }}</h4>
+                  <div class="row mx-0">
+                    <div class="col-12">
+                      <p>
+                        <strong>
+                          {{ "account.product_name" | translate }}:</strong
+                        >
+                        Nam bibendum
+                      </p>
+                      <p>
+                        <strong> {{ "account.category" | translate }}:</strong>
+                        Mag
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-title">
+                  <h4>{{ "account.content" | translate }}</h4>
+                  <div class="row mx-0">
+                    <div class="col-9">
+                      <p>
+                        Integer molestie neque quis dolor porttitor, eu pretium
+                        metus auctor. Ut odio massa, pharetra vel accumsan ut,
+                        fringilla dignissim velit. Curabitur bibendum, dolor sed
+                        volutpat dignissim, nisi odio placerat dolor, ac
+                        sollicitudin sem justo ac libero. Vestibulum at iaculis
+                        eros. Vestibulum tempus mauris ut gravida sodales. Nunc
+                        a ipsum vitae magna pretium ornare.
+                      </p>
+                    </div>
+                    <div class="col-3 text-end">
+                      <div class="btn btn-outline-primary action-btn-sec">
+                        <a [routerLink]="['/account/orders/active-content', 1]">
+                          View
+                        </a>
+                        <span> / </span>
+                        <a [routerLink]="['/account/orders/edit-content', 1]">
+                          Edit
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 card border-0">
+                <app-checkbox-modal
+                  [isActive]="isActive()"
+                  (statusChange)="onStatusChange($event)"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

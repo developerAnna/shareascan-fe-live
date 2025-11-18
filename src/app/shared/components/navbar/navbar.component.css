@@ -1,0 +1,48 @@
+.custom-logo {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.list-inline .list-inline-item {
+    align-items: center;
+    background: #E7E9EB;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    height: 48px;
+    justify-content: center;
+    width: 48px;
+}
+
+.list-inline .list-inline-item .custom-a {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-login {
+    align-items: center;
+    background: var(--black-color);
+    border-radius: 40px;
+    display: flex;
+    gap: 15px;
+    height: 48px;
+    padding: 0 30px;
+    width: max-content;
+}
+
+.navbar-offset {
+    height: 67px;
+}
+
+.dropdown-item:focus, .dropdown-item:active {
+    color: white;
+    background-color: rgb(105, 112, 255);
+}

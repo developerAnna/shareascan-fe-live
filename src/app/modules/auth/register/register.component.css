@@ -1,0 +1,26 @@
+.register-content .subtitle h4 {
+    color: var(--black-color);
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.custom-img {
+    max-height: 600px;
+}
+
+.bottom-bar {
+    padding: 10px 0 0;
+    text-align: center;
+    position: relative;
+}
+
+.bottom-bar a {
+    color: #6970FF;
+}
+
+/* Less than 576px */
+@media (max-width: 576px) {
+    .register-content .subtitle h4 {
+        font-size: 24px;
+    }
+}

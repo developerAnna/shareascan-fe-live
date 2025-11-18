@@ -1,0 +1,52 @@
+.account-section.account-nav {
+  background: rgba(255, 138, 144, 0.2);
+  padding: 40px;
+  border-radius: 20px;
+  position: sticky;
+  top: 0px;
+  height: 690px;
+}
+
+.account-section.account-nav li.active a {
+  background: #ffffff;
+  color: #6970ff;
+}
+
+.account-section.account-nav li a {
+  display: block;
+  width: 100%;
+  color: #636363;
+  font-size: 16px;
+  line-height: 28px;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+}
+
+.account-section.account-nav li a i {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 1440px) {
+  .account-section.account-nav {
+    padding: 30px;
+    height: 540px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .account-section.account-nav {
+    padding: 20px;
+    height: auto;
+    margin-bottom: 40px;
+  }
+  .account-section.account-nav li a {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .account-section.account-nav {
+    margin-bottom: 20px;
+  }
+}

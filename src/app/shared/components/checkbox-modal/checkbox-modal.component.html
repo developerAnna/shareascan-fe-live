@@ -1,0 +1,134 @@
+<div class="AD-checkbox">
+    <div class="form-check form-switch">
+        <label class="form-check-label" for="flexSwitchCheckDefault">
+            {{ "account.activate_deactivate_qr_code" | translate }}
+        </label>
+
+        <input
+                id="flexSwitchCheckDefault"
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                [checked]="isActive()"
+                (click)="onCheckboxChange($event)"
+        />
+    </div>
+</div>
+<div class="my-4 Qr-images">
+    <img class="mb-3" src="images/qr-code.svg" alt="qr-code"/>
+
+    <button (click)="openQrModal()">
+        {{ "account.test_qr_code" | translate }}
+    </button>
+</div>
+<div class="download">
+    <a href="#" class="btn btn-primary"> {{ "account.download" | translate }}</a>
+</div>
+
+<ng-template #deactivationModal let-modal>
+    <div class="modal-header border-0" id="DeactivationModal">
+        <h1 class="modal-title fs-5">
+            {{ "account.confirm_deactivation" | translate }}
+        </h1>
+        <button
+                type="button"
+                class="btn-close"
+                (click)="modal.close()"
+                aria-label="Close"
+        ></button>
+    </div>
+    <div class="modal-body">
+        <p>
+            Sed suscipit dolor risus, ac semper est tempor ac. Vestibulum elit tellus,
+            lacinia a finibus ac, euismod ac dolor. Phasellus vel nulla purus. Proin
+            vel mauris at justo hendrerit semper eu sed lacus. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit.
+        </p>
+        <p>
+            Sed eu enim pulvinar, ultricies dui non, euismod mauris. Fusce ullamcorper
+            rhoncus arcu, quis varius elit. Morbi convallis ullamcorper est ut ornare.
+            Pellentesque vulputate ante non ornare luctus. Nam pulvinar nunc magna,
+            sed lacinia augue faucibus nec.
+        </p>
+    </div>
+    <div class="modal-footer border-0">
+        <button
+                type="button"
+                class="btn btn-outline-primary"
+                (click)="modal.close()"
+        >
+            {{ "account.cancel" | translate }}
+        </button>
+        <button
+                type="button"
+                class="btn btn-primary"
+                (click)="modal.close('Confirm')"
+        >
+            {{ "account.confirm" | translate }}
+        </button>
+    </div>
+</ng-template>
+
+<ng-template #qrCodeModal let-modal>
+    <div class="modal-header border-0" id="QrCodeModal">
+        <h1 class="modal-title fs-5">
+            {{ "account.test_your_qr_code" | translate }}
+        </h1>
+        <button
+                type="button"
+                class="btn-close"
+                (click)="modal.close()"
+                aria-label="Close"
+        ></button>
+    </div>
+    <div class="modal-body">
+        <div class="app-store">
+            <div class="app-icon">
+                <img src="images/apple.svg" alt="apple-icon"/>
+            </div>
+            <div class="app-text">
+                Integer molestie neque quis dolor porttitor, eu pretium metus auctor. Ut
+                odio massa, pharetra vel accumsan ut, fringilla dignissim velit.
+                Curabitur bibendum, dolor sed volutpat dignissim, nisi odio placerat
+                dolor.
+            </div>
+        </div>
+        <div class="app-store">
+            <div class="app-icon">
+                <img src="images/andorie.svg" alt="android-icon"/>
+            </div>
+            <div class="app-text">
+                Integer molestie neque quis dolor porttitor, eu pretium metus auctor. Ut
+                odio massa, pharetra vel accumsan ut, fringilla dignissim velit.
+                Curabitur bibendum, dolor sed volutpat dignissim, nisi odio placerat
+                dolor.
+            </div>
+        </div>
+        <div class="scan-qr">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="left-qr">
+                        <img width="220px" src="images/qr-code.svg" alt="qr-code"/>
+                        <p class="mt-2 text-center">
+                            {{ "account.scan_qr_code" | translate }}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="right-qr">
+                        <i class="fa-solid fa-spinner"></i>
+                        <p>
+                            Quisque lobortis, nisi rutrum porttitor condimentum, est urna
+                            facilisis ex, et tincidunt augue erat vel neque. Nam sed ante in
+                            ex dignissim luctus eu vitae lacus. Cras a turpis elit.
+                        </p>
+                    </div>
+                    <p class="mt-2">
+                        Nam sed ante in ex dignissim luctus eu vitae lacus. Cras a turpis
+                        elit.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

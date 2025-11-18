@@ -1,0 +1,19 @@
+<div class="account-nav account-section">
+  <ul class="list-inline">
+    @for (link of links(); track link.path || link.translationKey) {
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">
+        @if (link.path) {
+          <a routerLink="{{ link.path }}"
+            ><i class="{{ link.icon }}"></i
+            >{{ link.translationKey | translate }}</a
+          >
+        } @else {
+          <a (click)="link.action && link.action()" style="cursor: pointer;"
+            ><i class="{{ link.icon }}"></i
+            >{{ link.translationKey | translate }}</a
+          >
+        }
+      </li>
+    }
+  </ul>
+</div>

@@ -1,0 +1,146 @@
+<app-navbar />
+
+<section class="container-fluid register-content p-3 p-lg-5">
+  <app-breadcrumb
+    title="{{ 'register.title' | translate }}"
+    [bgColor]="headerColor()"
+    [breadcrumbColor]="breadcrumbColor()"
+  />
+
+  <div class="row py-5">
+    <div class="col-12 col-md-6 d-none d-lg-block text-center">
+      <img
+        src="./images/login-register.png"
+        alt="Register Banner"
+        class="user-select-none custom-img"
+      />
+    </div>
+
+    <div class="col-12 col-md-6">
+      <div class="subtitle">
+        <h4>{{ "register.title" | translate }}</h4>
+      </div>
+
+      <form
+        class="mt-4 needs-validation"
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit()"
+        [ngClass]="{
+          'was-validated':
+            submitted() && registerForm.touched && registerForm.invalid,
+        }"
+        novalidate
+      >
+        <div class="row">
+          <!-- First Name -->
+          <div class="col-12">
+            <div class="form-group mb-4">
+              <label class="form-label" for="register-full-name">
+                {{ "contact_us.first_name" | translate }}
+              </label>
+              <input
+                type="text"
+                placeholder=""
+                class="form-control main-input"
+                id="register-full-name"
+                formControlName="first_name"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Last Name -->
+          <div class="col-12">
+            <div class="form-group mb-4">
+              <label class="form-label" for="register-last-name">
+                {{ "contact_us.last_name" | translate }}
+              </label>
+              <input
+                type="text"
+                placeholder=""
+                class="form-control main-input"
+                id="register-last-name"
+                formControlName="last_name"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="col-12">
+            <div class="form-group mb-4">
+              <label class="form-label" for="register-email">
+                {{ "register.email" | translate }}
+              </label>
+              <input
+                type="email"
+                placeholder=""
+                class="form-control main-input"
+                id="register-email"
+                formControlName="email"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="col-12">
+            <div class="form-group mb-4">
+              <label class="form-label" for="register-password">
+                {{ "register.password" | translate }}
+              </label>
+              <input
+                type="password"
+                placeholder=""
+                class="form-control main-input"
+                id="register-password"
+                formControlName="password"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Terms & Conditions -->
+          <div class="col-12">
+            <div class="form-group mb-4">
+              <div class="remember">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="agreeTermsCheckbox"
+                    formControlName="acceptTerms"
+                    required
+                  />
+                  <label class="form-check-label" for="agreeTermsCheckbox">
+                    {{ "register.agree_terms" | translate }}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Register Button -->
+          <div class="col-lg-12">
+            <div class="form-group">
+              <button
+                type="submit"
+                class="btn main-btn rounded-pill w-100"
+                [disabled]="isLoading()"
+              >
+                {{ "register.btn_register" | translate }}
+              </button>
+            </div>
+
+            <div class="bottom-bar">
+              <p>
+                {{ "register.already_have_account" | translate }}
+                <a routerLink="/login"> {{ "login.title" | translate }}</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+<nav class="navbar bg-white navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/">
+            <img
+                    src="./images/main-logo.svg"
+                    alt="Logo"
+                    width="180"
+                    height="40"
+                    class="d-inline-block align-text-top custom-logo"
+            >
+        </a>
+
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <div class="navbar-nav mx-auto mb-2 mb-lg-0">
+                @for (link of links(); track link.path) {
+                    <a
+                            class="nav-link"
+                            routerLink="{{ link.path }}"
+                            routerLinkActive="text-dark fw-semibold"
+                            [routerLinkActiveOptions]="{ exact: true }"
+                            (click)="scrollToTop()"
+                    >
+                        {{ link.translationKey | translate }}
+                    </a>
+                }
+            </div>
+
+            <div class="d-flex flex-column flex-lg-row justify-content-start">
+                <ul class="list-inline mb-0 d-inline-flex gap-1">
+                    @if (userSession()) {
+                        <li class="list-inline-item dropdown">
+                            <a class="user-select-none custom-a" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="./images/user.svg" alt="Profile"/>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-start dropdown-menu-md-end">
+                                <li>
+                                    <a
+                                            class="dropdown-item"
+                                            routerLink="/account"
+                                            (click)="scrollToTop()"
+                                    >
+                                        My Account
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-danger" (click)="onLogout()">
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-inline-item">
+                            <a
+                                    class="user-select-none custom-a"
+                                    routerLink="/shopping-cart"
+                                    (click)="scrollToTop()"
+                            >
+                                <img src="./images/shopping-cart.svg" alt="Shopping Cart"/>
+                            </a>
+                        </li>
+                    }
+                </ul>
+                @if (!userSession()) {
+                    <div class="btn-login mt-2 mt-lg-0 ms-0 ms-lg-2" type="button">
+                        <a class="text-decoration-none text-white user-select-none" routerLink="/login">
+                            {{ 'navbar.login' | translate }}
+                        </a>
+                        <a class="text-decoration-none text-white user-select-none">
+                            |
+                        </a>
+                        <a class="text-decoration-none text-white user-select-none" routerLink="/register">
+                            {{ 'navbar.register' | translate }}
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="navbar-offset"></div>

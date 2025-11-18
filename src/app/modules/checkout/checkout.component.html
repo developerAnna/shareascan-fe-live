@@ -1,0 +1,179 @@
+<section class="container-fluid px-lg-5">
+    <app-breadcrumb
+            [title]="'checkout.title' | translate"
+            [bgColor]="headerColor()"
+            [breadcrumbColor]="breadcrumbColor()"
+    />
+</section>
+
+<section class="checkout-section pt-80 pb-80 px-lg-5">
+    <div class="container-fluid">
+        <div class="section-header">
+            <h2>{{ "checkout.title" | translate }}</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="checkout-inner">
+                    <div class="sec-title">
+                        <h4>{{ "checkout.personalInfo" | translate }}</h4>
+                    </div>
+                    <form
+                            id="checkoutForm"
+                            [formGroup]="checkoutForm"
+                            (ngSubmit)="onSubmit()"
+                            class="needs-validation"
+                            [ngClass]="{
+              'was-validated':
+                submitted() && checkoutForm.touched && checkoutForm.invalid,
+            }"
+                    >
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group mb-4">
+                                    <label for="email"
+                                    >{{ "checkout.emailLabel" | translate }}*</label
+                                    >
+                                    <input
+                                            type="email"
+                                            placeholder=""
+                                            class="form-control"
+                                            id="email"
+                                            required
+                                            formControlName="email"
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-4">
+                                    <label for="firstName"
+                                    >{{ "checkout.firstNameLabel" | translate }}*</label
+                                    >
+                                    <input
+                                            type="text"
+                                            placeholder=""
+                                            class="form-control"
+                                            id="firstName"
+                                            required
+                                            formControlName="firstName"
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-4">
+                                    <label for="lastName"
+                                    >{{ "checkout.lastNameLabel" | translate }}*</label
+                                    >
+                                    <input
+                                            type="text"
+                                            placeholder=""
+                                            class="form-control"
+                                            id="lastName"
+                                            required
+                                            formControlName="lastName"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Order Summary -->
+            <div class="col-lg-6">
+                <div class="checkout-inner">
+                    <div class="sec-title">
+                        <h4>{{ "checkout.orderSummary" | translate }}</h4>
+                    </div>
+                    <div class="product-heading">
+                        <div class="row">
+                            <div class="col-6">
+                                <p>{{ "checkout.productName" | translate }}</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-end">{{ "checkout.price" | translate }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    @if (isLoading()) {
+                        <div class="mt-5 mb-5 mb-lg-2">
+                            <app-spinner/>
+                        </div>
+                    } @else {
+                        <section class="product-list">
+                            @for (product of (checkout()?.data?.products || []); track product.id) {
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p>{{ product.product_title }}</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="text-end">{{ product.price | currency:'USD':'symbol':'1.2-2' }}</p>
+                                    </div>
+                                </div>
+                            }
+                            <!--
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>Subtotal</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="text-end">$210</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>{{ "checkout.discount" | translate }}(-)</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="text-end">$0</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>{{ "checkout.shipping" | translate }}(+)</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="text-end">$90</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p>{{ "checkout.tax" | translate }}(+)</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="text-end">$210</p>
+                                </div>
+                            </div>
+                            -->
+                            <div class="my-4">
+                                <hr/>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <p class="text-black fw-medium">
+                                        {{ "checkout.total" | translate }}
+                                    </p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="text-end text-black fw-medium">
+                                        {{ checkout()?.data?.total | currency:'USD':'symbol':'1.2-2' }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <button
+                                            type="submit"
+                                            form="checkoutForm"
+                                            class="btn btn-primary"
+                                            [disabled]="isSending()"
+                                    >
+                                        {{ "checkout.paymentButton" | translate }}
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

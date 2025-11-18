@@ -1,0 +1,139 @@
+.features-section .features-inner {
+    position: relative;
+    background: #F5F5F5;
+    padding: 60px 40px;
+    border-radius: 30px;
+}
+
+.features-inner .card {
+    border: none;
+    border-radius: 20px;
+}
+
+.features-inner .card .badge {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 34px;
+    margin-top: -40px;
+    margin-left: 20px;
+    padding: 0;
+
+}
+
+.features-inner .row > div:nth-child(4n + 1) .badge {
+    background: #FF8469;
+    color: #fff;
+}
+
+.features-inner .row > div:nth-child(4n + 2) .badge {
+    background: #6970FF;
+    color: #fff;
+}
+
+.features-inner .row > div:nth-child(4n + 3) .badge {
+    background: #FF8A90;
+    color: #fff;
+}
+
+.features-inner .row > div:nth-child(4n + 4) .badge {
+    background: #935E4A;
+    color: #fff;
+}
+
+.features-inner .row > div:nth-child(4n + 2) .card,
+.features-inner .row > div:nth-child(4n + 4) .card {
+    margin-top: 40px;
+}
+
+.features-inner .card .badge h2 {
+    font-size: 48px;
+    line-height: 80px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.features-inner .card .card-body {
+    padding: 20px;
+}
+
+.features-inner .card .card-body h4 {
+    font-size: 24px;
+    line-height: 28px;
+    padding-bottom: 10px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 1540px) {
+    .features-inner .card .badge h2 {
+        font-size: 36px;
+        line-height: 42px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .features-section .features-inner {
+        padding: 40px 20px;
+    }
+
+    .features-inner .card .card-body h4 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .features-inner .card .badge h2 {
+        font-size: 28px;
+        line-height: 76px;
+    }
+
+    .features-inner .card .badge {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .features-section .features-inner {
+        padding: 40px 20px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .features-section .features-inner {
+        padding: 40px 20px 0;
+    }
+
+    .features-inner .card {
+        margin-bottom: 60px;
+    }
+
+    .features-inner .row > div:nth-child(4n + 2) .card,
+    .features-inner .row > div:nth-child(4n + 4) .card {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .features-inner .card .card-body p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .features-section .features-inner {
+        padding: 20px 10px 0;
+    }
+
+    .features-inner .card .badge h2 {
+        font-size: 24px;
+        line-height: 60px;
+    }
+
+    .features-inner .card .badge {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+    }
+}

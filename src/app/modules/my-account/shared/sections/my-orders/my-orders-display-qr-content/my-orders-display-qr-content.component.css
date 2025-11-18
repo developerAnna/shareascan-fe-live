@@ -1,0 +1,61 @@
+.activate-code .activate-content h2 {
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+.activate-code .activate-content p {
+  font-size: 16px;
+  line-height: 24px;
+  padding-bottom: 15px;
+  font-weight: 400;
+}
+
+.activate-code .activate-content ul li {
+  background: linear-gradient(
+    90deg,
+    rgba(105, 112, 255, 0.1) 100%,
+    rgba(105, 112, 255, 1) 100%
+  );
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+.activate-code .activate-content .quate {
+  background: linear-gradient(
+    90deg,
+    rgba(105, 112, 255, 0.1) 100%,
+    rgba(105, 112, 255, 1) 100%
+  );
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 1440px) {
+  .activate-code .activate-content h2 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .activate-code .activate-content ul li svg.me-2,
+  .activate-code .activate-content p svg.me-2 {
+    margin-right: 0rem !important;
+    height: 18px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .checkout-section .section-header h2,
+  .diactivated-code .activate-content h2,
+  .activate-code .activate-content h2,
+  .login-form .sub-title h4,
+  .section-header h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}

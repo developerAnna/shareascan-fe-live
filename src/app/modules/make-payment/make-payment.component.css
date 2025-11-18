@@ -1,0 +1,103 @@
+.checkout-section .checkout-inner {
+    position: relative;
+    background: rgba(122, 215, 208, 0.2);
+    padding: 40px;
+    border-radius: 30px;
+}
+
+.checkout-section .checkout-inner .sec-title h4 {
+    color: #121212;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #868686;
+}
+
+.checkout-section .checkout-inner .form-group label {
+    color: #636363;
+    font-size: 16px;
+    line-height: 20px;
+    padding-bottom: 5px;
+}
+
+.checkout-section .checkout-inner .form-group .form-control {
+    padding: 0.8rem 1rem;
+    border: none;
+}
+
+.checkout-section .checkout-inner .product-heading {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #868686;
+}
+
+.checkout-section .checkout-inner .product-list p {
+    font-size: 16px;
+    line-height: 24px;
+    padding-bottom: 10px;
+    color: #636363;
+}
+
+.checkout-section .checkout-inner .btn-primary {
+    width: 100%;
+    background: #000000;
+    border-color: #000000;
+    padding: 0.8rem 2rem;
+}
+
+.checkout-section .checkout-inner .form-check-input {
+    --bs-form-check-bg: #ffdc62;
+    border: var(--bs-border-width) solid #000000;
+}
+
+.checkout-section .section-header h2 {
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+
+@media screen and (max-width: 1440px) {
+    .checkout-section .section-header h2 {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    .checkout-section .checkout-inner {
+        padding: 30px;
+    }
+
+    .checkout-section .checkout-inner .sec-title h4 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+
+@media (min-width: 992px) {
+    .checkout-section .checkout-inner {
+        margin: 0 auto;
+        max-width: 800px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .checkout-section .checkout-inner {
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .checkout-section {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .checkout-section .checkout-inner {
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 20px;
+    }
+}

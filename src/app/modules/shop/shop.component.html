@@ -1,0 +1,362 @@
+<section class="container-fluid p-3 p-lg-5">
+  <app-breadcrumb
+    title="{{ 'shop.title' | translate }}"
+    [bgColor]="headerColor()"
+    [breadcrumbColor]="breadcrumbColor()"
+  />
+
+  @if (isLoading()) {
+    <div class="mt-5 mb-5 mb-lg-2">
+      <app-spinner />
+    </div>
+  } @else {
+    <section class="shop-section-main-area">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="shop-section-left-area">
+              <div class="shop-section-left-categories">
+                <div class="shop-section-left-categories-block">
+                  <a
+                    (click)="onSelectCategory('bestseller')"
+                    [ngClass]="{
+                      'active': sortCategoryCtrl.value === 'bestseller',
+                    }"
+                    class="shop-section-left-categories-block-box text-black d-flex align-items-center justify-content-between"
+                    [style.pointer-events]="isLoadingMore() ? 'none' : 'auto'"
+                  >
+                    <h5 class="heading-xsm">
+                      {{ "shop.bestsellers" | translate }}
+                    </h5>
+                    <img
+                      src="./images/icon-bestseller.svg"
+                      alt="Bestseller"
+                      class="img-fluid"
+                    />
+                  </a>
+                </div>
+                <div class="shop-section-left-categories-block">
+                  <a
+                    (click)="onSelectCategory('new_arrival')"
+                    [ngClass]="{
+                      'active': sortCategoryCtrl.value === 'new_arrival',
+                    }"
+                    class="shop-section-left-categories-block-box text-black d-flex align-items-center justify-content-between"
+                    [style.pointer-events]="isLoadingMore() ? 'none' : 'auto'"
+                  >
+                    <h5 class="heading-xsm">
+                      {{ "shop.new_arrivals" | translate }}
+                    </h5>
+                    <img
+                      src="./images/icon-star.svg"
+                      alt="New Arrivals"
+                      class="img-fluid"
+                    />
+                  </a>
+                </div>
+                @for (
+                  category of productData()?.data?.categories;
+                  track category.category_id
+                ) {
+                  <div class="shop-section-left-categories-block">
+                    <a
+                      (click)="onSelectCategory(category.category_id)"
+                      [ngClass]="{
+                        'active':
+                          sortCategoryCtrl.value ===
+                          String(category.category_id),
+                      }"
+                      class="shop-section-left-categories-block-box text-black d-flex align-items-center justify-content-between"
+                      [style.pointer-events]="isLoadingMore() ? 'none' : 'auto'"
+                    >
+                      <h5 class="heading-xsm">{{ category.title }}</h5>
+                    </a>
+                  </div>
+                }
+              </div>
+              <div class="shop-section-left-filters">
+                <div class="shop-section-left-filter-boxes">
+                  <h5 class="heading-xsm text-black mb-3">Filter by:</h5>
+                  <div
+                    class="accordion accordion-flush"
+                    id="accordionPanelsStayOpenExample"
+                  >
+                    <div class="accordion-item bg-transparent border-0">
+                      <h2
+                        class="accordion-header"
+                        id="panelsStayOpen-headingOne"
+                      >
+                        <button
+                          class="accordion-button bg-transparent px-0"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#panelsStayOpen-collapseOne"
+                          aria-expanded="true"
+                          aria-controls="panelsStayOpen-collapseOne"
+                        >
+                          Color
+                        </button>
+                      </h2>
+                      <div
+                        id="panelsStayOpen-collapseOne"
+                        class="accordion-collapse collapse show"
+                        aria-labelledby="panelsStayOpen-headingOne"
+                      >
+                        <div class="accordion-body px-0 border-bottom-0">
+                          <div class="shop-section-left-filter-chk-group">
+                            @for (color of shopColors() || []; track color) {
+                              <label class="list-group-item">
+                                <input
+                                  class="form-check-input me-1"
+                                  type="radio"
+                                  [value]="color"
+                                  [formControl]="sortColorCtrl"
+                                  name="colorOptions"
+                                />
+                                {{ color }}
+                              </label>
+                            }
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Size -->
+                    <div class="accordion-item bg-transparent border-0">
+                      <h2
+                        class="accordion-header"
+                        id="panelsStayOpen-headingTwo"
+                      >
+                        <button
+                          class="accordion-button bg-transparent px-0"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#panelsStayOpen-collapseTwo"
+                          aria-expanded="true"
+                          aria-controls="panelsStayOpen-collapseTwo"
+                        >
+                          Size
+                        </button>
+                      </h2>
+                      <div
+                        id="panelsStayOpen-collapseTwo"
+                        class="accordion-collapse collapse show"
+                        aria-labelledby="panelsStayOpen-headingTwo"
+                      >
+                        <div class="accordion-body px-0">
+                          <div
+                            class="shop-section-left-filter-chk-group half-cols d-flex align-items-start justify-content-between flex-wrap"
+                          >
+                            @for (size of shopSizes() || []; track size) {
+                              <label class="list-group-item">
+                                <input
+                                  class="form-check-input me-1"
+                                  type="radio"
+                                  [value]="size"
+                                  [formControl]="sortSizeCtrl"
+                                  name="sizeOptions"
+                                />
+                                {{ size }}
+                              </label>
+                            }
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="shop-section-right-area ps-2 ps-md-3">
+              <div class="shop-section-right-top-area">
+                <h3 class="heading-lg">New Arrivals</h3>
+                <div class="shop-section-right-top-filter">
+                  <div class="row">
+                    <form class="row">
+                      <!-- Sort Alphabetically -->
+                      <div class="col-auto">
+                        <select
+                          class="form-select"
+                          aria-label="Default Sorting"
+                          [formControl]="sortAlphabeticallyCtrl"
+                        >
+                          <option value="a_to_z">A to Z</option>
+                          <option value="z_to_a">Z to A</option>
+                        </select>
+                      </div>
+                      <div class="col-auto">
+                        <div class="input-group">
+                          <span
+                            class="input-group-text bg-transparent"
+                            id="searchIcon"
+                          >
+                            <img src="./images/icon-search.svg" alt="search" />
+                          </span>
+                          <input
+                            type="search"
+                            class="form-control border-start-0 ps-0"
+                            id="search"
+                            placeholder="Search"
+                            [formControl]="searchCtrl"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-auto ms-auto">
+                        <select
+                          class="form-select"
+                          aria-label="Default Sorting"
+                          [formControl]="sortCategoryCtrl"
+                        >
+                          <option value="new_arrival">
+                            {{ "shop.new_arrivals" | translate }}
+                          </option>
+                          <option value="bestseller">
+                            {{ "shop.bestsellers" | translate }}
+                          </option>
+                          @for (
+                            category of productData()?.data?.categories;
+                            track category.category_id
+                          ) {
+                            <option [value]="category.category_id">
+                              {{ category.title }}
+                            </option>
+                          }
+                        </select>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              @if (isLoadingMore()) {
+                <div class="mt-5 mb-5 mb-lg-2">
+                  <app-spinner />
+                </div>
+              } @else {
+                <!-- Product List -->
+                <article class="shop-section-right-products-area">
+                  <div class="shop-section-right-products-area-block">
+                    @for (product of productList(); track product.id) {
+                      <div
+                        class="shop-section-right-products-area-block-box"
+                        (click)="goToProductInfo(product.id)"
+                      >
+                        <div class="card border-0 h-100">
+                          <div class="card-top card-green px-0 rounded-5">
+                            <img
+                              [src]="product?.thumbnail_url"
+                              class="img-fluid rounded-5 w-100"
+                              [alt]="product.title"
+                            />
+                          </div>
+                          <div
+                            class="card-body px-0 d-flex flex-column align-items-start "
+                          >
+                            <span
+                              class="icon-wishlist d-flex align-items-center justify-content-center rounded-pill"
+                            >
+                              @if (addingWishlist(product.id)) {
+                                <div
+                                  class="spinner-border spinner-border-sm"
+                                  role="status"
+                                >
+                                  <span class="visually-hidden"
+                                    >Loading...</span
+                                  >
+                                </div>
+                              } @else {
+                                <a
+                                  (click)="
+                                    addToWishlist(
+                                      product.id,
+                                      product?.isFavorite
+                                    ); $event.stopPropagation()
+                                  "
+                                  (keyup.enter)="
+                                    addToWishlist(
+                                      product.id,
+                                      product?.isFavorite
+                                    ); $event.stopPropagation()
+                                  "
+                                  (keydown.space)="
+                                    addToWishlist(
+                                      product.id,
+                                      product?.isFavorite
+                                    ); $event.stopPropagation()
+                                  "
+                                >
+                                  <i
+                                    class="fa-regular fa-heart"
+                                    [ngClass]="{
+                                      'fa-solid text-danger':
+                                        product?.isFavorite,
+                                    }"
+                                  ></i>
+                                </a>
+                              }
+                            </span>
+                            <h4 class="card-title">{{ product?.title }}</h4>
+                            <p class="card-text card-price">
+                              {{ product?.max_price | currency:'USD':'symbol':'1.2-2'  }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                  </div>
+
+                  <!-- Pagination -->
+                  <div
+                    class="custom-pagination my-4 d-flex align-items-center justify-content-center"
+                  >
+                    <ul class="pagination mb-0">
+                      <li
+                        class="page-item"
+                        [class.disabled]="currentPage() === 1"
+                      >
+                        <a
+                          class="page-link prev"
+                          (click)="changePage(currentPage() - 1)"
+                        >
+                          <img src="./images/arrow-icon.svg" alt="prev" />
+                        </a>
+                      </li>
+
+                      @for (
+                        page of [].constructor(totalPages());
+                        track page;
+                        let idx = $index
+                      ) {
+                        <li
+                          class="page-item"
+                          [class.active]="currentPage() === idx + 1"
+                        >
+                          <a class="page-link" (click)="changePage(idx + 1)">
+                            {{ idx + 1 }}
+                          </a>
+                        </li>
+                      }
+
+                      <li
+                        class="page-item"
+                        [class.disabled]="currentPage() === totalPages()"
+                      >
+                        <a
+                          class="page-link next"
+                          (click)="changePage(currentPage() + 1)"
+                        >
+                          <img src="./images/arrow-icon.svg" alt="next" />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </article>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+</section>

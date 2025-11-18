@@ -1,0 +1,125 @@
+.footer {
+    width: 100%;
+    position: relative;
+    padding: 80px 0px 20px;
+    background: #000000;
+}
+
+.footer .logo img {
+    width: 280px;
+    margin-bottom: 40px;
+}
+
+.footer .logo p {
+    color: #ffffff;
+}
+
+.footer .quick-links h4 {
+    color: #ff8a90;
+    font-size: 24px;
+    line-height: 32px;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+.footer .quick-links .list-inline li {
+    margin-bottom: 15px;
+}
+
+.footer .quick-links .list-inline li a {
+    display: flex;
+    align-items: flex-start;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 300;
+    padding-bottom: 5px;
+}
+
+.footer .quick-links .list-inline li a span {
+    margin-left: 10px;
+}
+
+.footer .container:first-child {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(225, 212, 203, 0.2);
+}
+
+.footer .copyright p {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 1540px) {
+    .footer .logo img {
+        width: 240px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .footer .logo img,
+    .header-1 .navbar-brand {
+        width: 220px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .footer .logo img,
+    .header-1 .navbar-brand {
+        width: 180px;
+    }
+
+    .footer .copyright .row {
+        flex-direction: column-reverse;
+    }
+
+    .footer .copyright .list-inline {
+        padding-bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .banner-section,
+    .footer .logo,
+    .footer .logo img {
+        margin-bottom: 20px;
+    }
+
+    .footer .container:first-child {
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .footer .logo img,
+    .header-1 .navbar-brand {
+        width: 150px;
+    }
+
+    .footer .quick-links h4 {
+        font-size: 20px;
+        line-height: 24px;
+        padding-bottom: 15px;
+    }
+
+    .footer .quick-links .list-inline li {
+        margin-bottom: 10px;
+    }
+
+    .footer .copyright p,
+    .footer .quick-links .list-inline li a,
+    .section-header p,
+    .footer .logo p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer {
+        padding: 40px 0px 20px;
+    }
+}

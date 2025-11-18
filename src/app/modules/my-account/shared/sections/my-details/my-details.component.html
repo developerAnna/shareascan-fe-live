@@ -1,0 +1,251 @@
+<section class="pt-80 pb-80 px-lg-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3">
+        <app-account-sidebar />
+      </div>
+      <div class="col-lg-9">
+        <div class="account-body">
+          <div class="sec-title mb-4">
+            <h2>{{ "account.my_detail" | translate }}</h2>
+          </div>
+          <div class="account-inner">
+            <h5>{{ "account.personal_information" | translate }}</h5>
+            <div class="row">
+              <div class="col-lg-4">
+                <p class="account-medium-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Nullam non magna at nibh vehicula facilisis. Duis pretium
+                  felis mauris, sit amet
+                </p>
+              </div>
+              <div class="col-lg-8">
+                @if (this.isLoading()) {
+                  <app-spinner />
+                } @else {
+                  <form class="account-form" [formGroup]="userForm">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <label class="form-label" for="firstName">{{
+                                "account.first_name" | translate
+                              }}</label>
+                              <input
+                                type="text"
+                                placeholder="John"
+                                class="form-control"
+                                formControlName="firstName"
+                                [ngClass]="{
+                                  'is-invalid':
+                                    submitted() &&
+                                    userControls.firstName.errors,
+                                }"
+                              />
+                            </div>
+                          </div>
+
+                          <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <label class="form-label" for="email">{{
+                                "account.email" | translate
+                              }}</label>
+                              <input
+                                type="email"
+                                placeholder="john@example.com"
+                                class="form-control"
+                                formControlName="email"
+                                [ngClass]="{
+                                  'is-invalid':
+                                    submitted() &&
+                                    userControls.email.errors,
+                                }"
+                              />
+                              @if (
+                                submitted() &&
+                                userControls.email.errors?.["email"]
+                              ) {
+                                <div class="invalid-feedback">
+                                  Please enter a valid email address
+                                </div>
+                              }
+                            </div>
+                          </div>
+
+                          <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <label class="form-label" for="phoneNumber">{{
+                                "account.phone_number" | translate
+                              }}</label>
+                              <input
+                                type="text"
+                                placeholder="1234567890"
+                                class="form-control"
+                                formControlName="phoneNumber"
+                                [ngClass]="{
+                                  'is-invalid':
+                                    submitted() &&
+                                    userControls.phoneNumber.errors,
+                                }"
+                              />
+                              @if (
+                                submitted() &&
+                                userControls.phoneNumber.errors?.["pattern"]
+                              ) {
+                                <div class="invalid-feedback">
+                                  {{ "payment.phoneInvalid" | translate }}
+                                </div>
+                              }
+                            </div>
+                          </div>
+                          <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <label class="form-label" for="city">{{
+                                "account.city" | translate
+                              }}</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                formControlName="city"
+                                [ngClass]="{
+                                  'is-invalid':
+                                    submitted() && userControls.city.errors,
+                                }"
+                              />
+                            </div>
+                          </div>
+                          <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <label class="form-label" for="address1">{{
+                                "account.address" | translate
+                              }}</label>
+                              <textarea
+                                rows="4"
+                                formControlName="address1"
+                                class="form-control"
+                                [ngClass]="{
+                                  'is-invalid':
+                                    submitted() && userControls.address1.errors,
+                                }"
+                              ></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6">
+                        <div class="col-lg-12">
+                          <div class="form-group mb-4">
+                            <label class="form-label" for="lastName">{{
+                              "account.last_name" | translate
+                            }}</label>
+                            <input
+                              type="text"
+                              placeholder="Deo"
+                              class="form-control"
+                              formControlName="lastName"
+                              [ngClass]="{
+                                'is-invalid':
+                                  submitted() && userControls.lastName.errors,
+                              }"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-lg-12">
+                          <div class="form-group mb-4">
+                            <label class="form-label" for="country">{{
+                              "account.country" | translate
+                            }}</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              formControlName="country"
+                              [ngClass]="{
+                                'is-invalid':
+                                  submitted() && userControls.country.errors,
+                              }"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-lg-12">
+                          <div class="form-group mb-4">
+                            <label class="form-label" for="postalCode">{{
+                              "account.postal_code" | translate
+                            }}</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              formControlName="postalCode"
+                              [ngClass]="{
+                                'is-invalid':
+                                  submitted() && userControls.postalCode.errors,
+                              }"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-lg-12">
+                          <div class="form-group mb-4">
+                            <label class="form-label" for="address2">{{
+                              "account.address2" | translate
+                            }}</label>
+                            <textarea
+                              rows="4"
+                              formControlName="address2"
+                              class="form-control"
+                              [ngClass]="{
+                                'is-invalid':
+                                  submitted() && userControls.address2.errors,
+                              }"
+                            ></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="form-group mb-4">
+                          <label class="form-label" for="region">{{
+                            "account.region" | translate
+                          }}</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            formControlName="region"
+                            [ngClass]="{
+                              'is-invalid':
+                                submitted() && userControls.region.errors,
+                            }"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12">
+                        <div class="form-group mb-4">
+                          <p class="account-small-text">
+                            Integer dui turpis, molestie non dictum nec,
+                            pharetra aliquam nisi
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="form-group mb-4">
+                          <button
+                            type="button"
+                            class="btn btn-primary"
+                            (click)="onSubmit()"
+                            [disabled]="isSending()"
+                          >
+                            {{ "account.save" | translate }}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

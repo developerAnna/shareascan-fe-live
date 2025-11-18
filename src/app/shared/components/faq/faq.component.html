@@ -1,0 +1,35 @@
+<section class="faq-section pt-80 pb-80">
+  <div class="container">
+    <div class="section-header mb-lg-5 mb-3 text-center">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="accordion" id="#accordionFaq">
+      @for (faq of faqData(); track faq.id) {
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#collapse' + faq.id"
+              aria-expanded="false"
+              [attr.aria-controls]="'collapse' + faq.id"
+            >
+              <strong>{{ faq.question }}</strong>
+            </button>
+          </h2>
+          <div
+            [id]="'collapse' + faq.id"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionFaq"
+          >
+            <div class="accordion-body">
+              {{ faq.answer }}
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

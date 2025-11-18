@@ -1,0 +1,36 @@
+<section class="subscribe-section">
+    <div class="row mx-0">
+        <div class="offset-lg-2 col-lg-10 px-0">
+            <div class="subscribe-content">
+                <div class="offset-md-6 mt-lg-5 pt-lg-5">
+                    <h4>Stay in the <span>Loop</span></h4>
+                    <p>{{ 'subscribe.description' | translate }}</p>
+                    <form
+                            class="mt-4 needs-validation"
+                            [formGroup]="subscribeForm"
+                    >
+                        <div class="form-group position-relative">
+                            <input
+                                    id="subscribe-email"
+                                    type="text"
+                                    placeholder="{{ 'subscribe.email_placeholder' | translate }}"
+                                    class="form-control"
+                                    formControlName="email"
+                            />
+                            <div
+                                    class="btn-arrow"
+                                    tabindex="0"
+                                    [ngClass]="{'disabled': isLoading()}"
+                                    (click)="onSubmit()"
+                                    (keyup.enter)="onSubmit()"
+                            >
+                                <img src="./images/dark-arrow.svg" alt="Arrow"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  

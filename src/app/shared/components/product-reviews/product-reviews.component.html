@@ -1,0 +1,57 @@
+<section class="customer-reviews pb-80">
+    <div class="container">
+        <div class="section-header mb-lg-5 mb-3">
+            <h4>{{ 'products.customer_reviews' | translate }}</h4>
+        </div>
+        @for (review of reviews(); track review.id) {
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="reviews-star">
+                        <div class="rating mb-1">
+                            <a href="#" tabindex="0"><i class="fa-solid fa-star"></i></a>
+                            <a href="#" tabindex="0"><i class="fa-solid fa-star"></i></a>
+                            <a href="#" tabindex="0"><i class="fa-solid fa-star"></i></a>
+                            <a href="#" tabindex="0"><i class="fa-solid fa-star"></i></a>
+                            <a href="#" tabindex="0"><i class="fa-solid fa-star"></i></a>
+                        </div>
+                        <div class="badge">
+                            <span class="btn btn-primary">Verified buyer</span> <strong>{{ review?.user_name }}</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="review-text text-">
+                        <h5>Lorem Ipsum</h5>
+                        <p>{{ review?.content }}</p>
+                    </div>
+                </div>
+            </div>
+        } @empty {
+            <div class="d-flex flex-column justify-content-between align-items-center gap-1 w-100">
+                <span><i class="fa-regular fa-comment fa-xl"></i></span>
+                <strong>{{ 'products.not_reviews' | translate }}</strong>
+            </div>
+        }
+
+        <div class="add-review mt-4">
+            <div class="rating mb-2">
+                <span class="mb-2 me-2">Product Rating:</span>
+                <ngb-rating [(rate)]="rating" [max]="5" [disabled]="isLoading()">
+                    <ng-template let-fill="fill" let-index="index">
+                        <i class="fa-xl fa-star {{ fill === 100 ? ' fa-solid text-warning' : ' fa-regular' }}"></i>
+                    </ng-template>
+                </ngb-rating>
+            </div>
+            <textarea
+                    [(ngModel)]="newReviewContent"
+                    placeholder="Write your review here..."
+                    class="form-control mb-2"
+                    [disabled]="isLoading()"
+            >
+            </textarea>
+            <button class="btn" (click)="addReview()" [disabled]="isLoading()">
+                Add Review
+            </button>
+        </div>
+    </div>
+</section>

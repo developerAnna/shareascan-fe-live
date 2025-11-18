@@ -1,0 +1,42 @@
+@if (testimonials().length > 0) {
+  <section class="testimonial-section pt-80 pb-80">
+    <div class="container-fluid">
+      <div class="section-header mb-lg-5 mb-3 text-center">
+        <h2>{{ "feedbacks.title" | translate }}</h2>
+        <p>
+          In finibus mauris nec massa tempus blandit. Fusce laoreet sapien id
+          massa volutpat, eget pulvinar sem sollicitudin.
+        </p>
+      </div>
+
+      <swiper-container appSwiper [config]="config" #swiper>
+        @for (testimonial of testimonials(); track testimonial.id) {
+          <swiper-slide class="testimonialSwiper">
+            <div class="swiper-slide">
+              <div class="quate-icon">
+                <img src="./images/quate.svg" alt="" />
+              </div>
+              <div class="client-name">
+                <h5>{{ testimonial.name }}</h5>
+              </div>
+              <div class="rating">
+                <a href="#" tabindex="0"><i class="fa-solid fa-star"></i></a>
+                <a href="#" tabindex="0"><i class="fa-solid fa-star"></i></a>
+                <a href="#" tabindex="0"><i class="fa-solid fa-star"></i></a>
+                <a href="#" tabindex="0"><i class="fa-solid fa-star"></i></a>
+                <a href="#" tabindex="0"><i class="fa-solid fa-star"></i></a>
+              </div>
+              <div class="client-say">
+                <p>
+                  {{ testimonial.testimonial }}
+                </p>
+              </div>
+            </div>
+          </swiper-slide>
+        }
+      </swiper-container>
+      <!-- Pagination (Dots) -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+}

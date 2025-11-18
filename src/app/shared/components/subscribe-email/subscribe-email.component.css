@@ -1,0 +1,149 @@
+.subscribe-section {
+    position: relative;
+    margin-bottom: 80px;
+}
+
+.subscribe-section .subscribe-content {
+    background-image: url('../../../../../public/images/subscribe-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 620px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.subscribe-section .subscribe-content h4 {
+    font-size: 42px;
+    line-height: 48px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+
+.subscribe-section .subscribe-content h4 span {
+    background: #6970ff;
+    border-radius: 12px;
+    color: #ffffff;
+    padding: 0.2rem 1rem;
+}
+
+.subscribe-section .subscribe-content p {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    padding: 30px 0px;
+}
+
+.subscribe-section .subscribe-content .form-control {
+    background: #ffffff;
+    padding: 1.4rem 1rem;
+    border-radius: 40px;
+    border: none;
+}
+
+.subscribe-section .subscribe-content .btn-arrow {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    cursor: pointer;
+}
+
+.btn-arrow.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 1540px) {
+    .subscribe-section .subscribe-content h4,
+    .features-inner .card .badge h2 {
+        font-size: 36px;
+        line-height: 42px;
+    }
+
+    .subscribe-section .subscribe-content {
+        height: 580px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+
+    .subscribe-section .subscribe-content {
+        height: 500px;
+    }
+
+    .subscribe-section .subscribe-content p {
+        padding: 10px 0px 30px;
+    }
+
+    .subscribe-section .subscribe-content .form-control {
+        padding: 1rem 1rem;
+    }
+
+    .subscribe-section .subscribe-content .btn-arrow {
+        width: 48px;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .subscribe-section .subscribe-content h4 {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+
+    .subscribe-section .subscribe-content {
+        height: 440px;
+    }
+
+    .subscribe-section .subscribe-content h4 {
+        font-size: 24px;
+        padding-bottom: 0px;
+    }
+
+    .subscribe-section {
+        margin-bottom: 40px;
+    }
+
+    .subscribe-section .subscribe-content p {
+        font-size: 16px;
+        padding: 20px 0px;
+    }
+
+    .subscribe-section .subscribe-content .form-control {
+        padding: 1rem 1rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .subscribe-section {
+        margin-bottom: 0px;
+        background: #ffdcde;
+    }
+
+    .subscribe-section .subscribe-content {
+        width: 100%;
+        height: 340px;
+        background-image: none;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+
+    .subscribe-section .subscribe-content {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .subscribe-section .subscribe-content h4 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+}

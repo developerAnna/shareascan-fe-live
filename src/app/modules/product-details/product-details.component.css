@@ -1,0 +1,390 @@
+.product__detailinfo .product__rating {
+  display: flex;
+  align-items: center;
+}
+
+.product__rating .br-widget i {
+  color: #cd0c39;
+}
+
+.product__rating .fav-counting {
+  margin-left: 10px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+}
+
+.product__rating .fav-counting .Aviable {
+  color: #00b517;
+  font-feature-settings:
+    'clig' off,
+    'liga' off;
+  font-family:
+    Open Sans,
+    serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+}
+
+.product-thumbnail .slider.slider-thumbnail {
+  max-width: 80%;
+  padding-left: 35px;
+}
+
+.product-thumbnail .slider.slider-nav {
+  max-width: 20%;
+}
+
+.product-thumbnail .slider.slider-thumbnail,
+.product-thumbnail .slider.slider-nav {
+  width: 100%;
+  float: left;
+}
+
+.product-thumbnail .slider.slider-nav {
+  height: 620px;
+  overflow: hidden;
+}
+
+.slider-banner-image {
+  height: 620px;
+  padding: 0px;
+}
+
+.slider-nav .slick-slide.thumbnail-image .thumbImg {
+  max-width: 100%;
+  height: 140px;
+  margin: 0 auto;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.slider-banner-image img,
+.slider-nav .slick-slide.thumbnail-image .thumbImg img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.slider-nav .slick-vertical .slick-slide:active,
+.slider-nav .slick-vertical .slick-slide:focus,
+.slider-nav .slick-arrow:hover,
+.slider-nav .slick-arrow:focus {
+  border: 0;
+  outline: 0;
+}
+
+.product-thumbnail .slick-vertical .slick-slide {
+  padding-bottom: 15px;
+}
+
+.product__detailinfo {
+  position: relative;
+  padding-left: 40px;
+}
+
+.product__detailinfo .sec-title {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 42px;
+  color: #000000;
+  padding-bottom: 10px;
+}
+
+.product__detailinfo .price p {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.03em;
+  color: #000000;
+}
+
+.product__detailinfo .price {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.product__detailinfo .price p {
+  color: #636363;
+  font-size: 14px;
+}
+
+.product__detailinfo .desc p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  color: #868686;
+  margin-bottom: 20px;
+}
+
+.product__detailinfo .desc {
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.size-variations,
+.colours-variations {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.size-variations p,
+.colours-variations p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  padding-right: 15px;
+  margin-bottom: 10px;
+}
+.radio__group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.radio__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #dcdcdc;
+  border-radius: 50%;
+  background-color: #fff;
+  width: 2.5rem;
+  height: 2.5rem;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  text-align: center;
+  transition: all 120ms ease-in-out;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.radio__button span {
+  cursor: pointer;
+  color: #000000;
+  user-select: none;
+}
+
+.color__button {
+  padding: 6px 15px 6px 15px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 24px;
+  background-color: #fff;
+  border: 1px solid #dcdcdc;
+  color: #000000;
+}
+.color__button.active {
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+.radio__button span {
+  font-size: 12px;
+  margin: 0;
+}
+
+.radio__button.active {
+  border: 1px solid #000000;
+  background: #000000;
+  span {
+    color: #fff;
+  }
+}
+
+/* .radio__button label:before {
+  content: attr(data-icon);
+  font-size: 13px;
+  display: block;
+  line-height: 36px;
+}
+
+.radio__button input[type='radio'] {
+  display: none;
+}
+
+.radio__button input[type='radio']:checked + label {
+  color: #fff;
+  border: 1px solid #000000;
+  background: #000000;
+}
+
+.radio__button input[type='radio']:disabled + label {
+  cursor: not-allowed;
+  color: #ccc;
+  background: #f5f5f5;
+  border: 1px solid #e7e7e7;
+} */
+
+.product__shopping {
+  display: flex;
+  align-items: center;
+}
+
+.product__shopping .input-group {
+  width: 100%;
+  max-width: 180px;
+  border: 1.5px solid rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+}
+
+.product__shopping .input-group .form-control {
+  text-align: center;
+  border: none;
+}
+
+.product__shopping .input-group .form-control:focus {
+  box-shadow: none;
+}
+
+.product__shopping .input-group .btn-minus {
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 0;
+}
+
+.product__shopping .input-group .btn-plus {
+  border-left: 1px solid #000000;
+  border-radius: 0;
+  color: #000000;
+}
+
+.product__shopping .buy_now .btn {
+  padding: 8px 48px 8px 48px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  background: #000000;
+  color: #ffffff;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 1540px) {
+  .product__detailinfo .desc {
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+  }
+
+  .product__detailinfo .sec-title {
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  .product__detailinfo {
+    padding-left: 20px;
+  }
+
+  .product__detailinfo .desc p svg {
+    width: 20px;
+    margin-right: 5px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .product-thumbnail .slider.slider-nav,
+  .slider-banner-image {
+    height: 530px;
+  }
+
+  .slider-nav .slick-slide.thumbnail-image .thumbImg {
+    max-width: 100%;
+    height: 120px;
+  }
+
+  .product__detailinfo .desc p {
+    margin-bottom: 15px;
+  }
+
+  .product__detailinfo .price {
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .product__shopping .buy_now .btn {
+    padding: 8px 24px 8px 24px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .product-thumbnail .slider.slider-thumbnail {
+    max-width: 80%;
+    padding-left: 20px;
+  }
+
+  .product__detailinfo {
+    padding-left: 0;
+    padding-top: 20px;
+  }
+
+  .product__detailinfo .sec-title {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .product-thumbnail .slider.slider-nav,
+  .slider-banner-image {
+    height: 400px;
+  }
+
+  .product__detailinfo .desc p {
+    font-size: 14px;
+  }
+
+  .product__shopping .input-group {
+    max-width: 130px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-thumbnail .slider.slider-nav,
+  .slider-banner-image {
+    height: 340px;
+  }
+
+  .product__detailinfo .sec-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .product__shopping .input-group {
+    max-width: 120px;
+  }
+
+  .product__shopping .buy_now .btn {
+    padding: 6px 12px 6px 12px;
+    margin-left: 5px;
+  }
+
+  .product__shopping .input-group .btn,
+  .product__shopping .input-group .form-control {
+    font-size: 14px;
+  }
+
+  .slider-nav .slick-slide.thumbnail-image .thumbImg {
+    max-width: 100%;
+    height: 100px;
+  }
+  .product__shopping{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+}
+}

@@ -1,0 +1,129 @@
+.section-header h2 {
+  font-size: 48px;
+  line-height: 54px;
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+
+.edit-content .content-tabs .nav-pills {
+  width: max-content;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  background: #f5f5f5;
+  border-radius: 50px;
+}
+
+.edit-content .content-tabs .nav-pills .nav-link {
+  border-radius: 50px;
+  color: #000000;
+  padding: 0.8rem 2rem;
+}
+
+.edit-content .content-tabs .nav-pills .nav-link.active,
+.edit-content .content-tabs .nav-pills .show > .nav-link {
+  color: #ffffff;
+  background: #6970ff;
+}
+
+.edit-content .content-tabs .website-tabContent {
+  position: relative;
+  background: #f5f5f5;
+  padding: 40px;
+  border-radius: 20px;
+  margin-top: 40px;
+}
+
+.website-tabContent .websiteUrl .form-control {
+  padding: 1rem 1rem;
+  border: none;
+}
+
+.website-tabContent {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .product__detailinfo .sec-title,
+  .section-header h2,
+  .about-section .about-content h2,
+  .subscribe-section .subscribe-content h4,
+  .heading-lg,
+  .aboutduis-section .aboutduis-content h4,
+  .aboutneque-section .container h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .checkout-section .section-header h2,
+  .diactivated-code .activate-content h2,
+  .activate-code .activate-content h2,
+  .login-form .sub-title h4,
+  .section-header h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .edit-content .content-tabs .nav-pills,
+  .edit-content .content-tabs .nav-pills .nav-item {
+    width: 100%;
+    background: inherit;
+  }
+
+  .edit-content .content-tabs .nav-pills .nav-link {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 14px;
+    background: #f5f5f5;
+    margin-bottom: 10px;
+  }
+
+  .websiteUrl {
+    margin-bottom: 20px;
+  }
+
+  .website-tabContent .websiteUrl .form-control {
+    padding: 0.8rem 1rem;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .section-header h2 {
+    font-size: 28px;
+    line-height: 38px;
+    padding-bottom: 10px;
+  }
+
+  .edit-content .content-tabs .nav-pills .nav-link {
+    padding: 0.8rem 1rem;
+    font-size: 15px;
+  }
+
+  .edit-content .content-tabs .website-tabContent {
+    padding: 25px;
+    margin-top: 25px;
+  }
+
+  .websiteUrl {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .section-header h2 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+}
+
+@media screen and (max-width: 1540px) {
+  .section-header h2 {
+    font-size: 42px;
+    line-height: 48px;
+  }
+}

@@ -1,0 +1,92 @@
+<section class="pb-80 pt-80 px-lg-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3">
+        <app-account-sidebar />
+      </div>
+
+      <div class="col-lg-9 account-setting">
+        <div class="sec-title mb-4">
+          <h2>{{ "passwordForm.title" | translate }}</h2>
+        </div>
+
+        <form class="account-form" [formGroup]="passwordForm">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="form-group mb-4">
+                <label class="form-label" for="oldPassword">{{
+                  "passwordForm.oldPassword" | translate
+                }}</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="oldPassword"
+                  [ngClass]="{
+                    'is-invalid':
+                      submitted() && passwordControls.oldPassword.errors,
+                  }"
+                />
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="form-group mb-4">
+                <label class="form-label" for="newPassword">{{
+                  "passwordForm.newPassword" | translate
+                }}</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="newPassword"
+                  [ngClass]="{
+                    'is-invalid':
+                      submitted() && passwordControls.newPassword.errors,
+                  }"
+                />
+                @if (
+                  submitted() &&
+                  passwordControls.newPassword.errors?.["weakPassword"]
+                ) {
+                  <div class="invalid-feedback">
+                    {{ "passwordForm.weakPassword" | translate }}
+                  </div>
+                }
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="form-group mb-4">
+                <label class="form-label" for="passwordConfirmation">{{
+                  "passwordForm.confirmPassword" | translate
+                }}</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="passwordConfirmation"
+                  [ngClass]="{
+                    'is-invalid': submitted() && passwordForm.errors,
+                  }"
+                />
+                @if (submitted() && passwordForm.errors?.["mismatch"]) {
+                  <div class="invalid-feedback">
+                    {{ "passwordForm.mismatch" | translate }}
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="col-lg-12">
+          <div class="form-group mb-4">
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="onSubmit()"
+              [disabled]="isSending()"
+            >
+              {{ "passwordForm.title" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

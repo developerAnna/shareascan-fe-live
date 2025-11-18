@@ -1,0 +1,21 @@
+<section class="order-successfully container-fluid py-4">
+  <img src="images/order-successfully.svg" alt="Not Found" class="img-fluid" />
+
+  <h2 class="text-center text-black mt-4 display-6">
+    {{ "order_successfully.title" | translate }}
+  </h2>
+
+  <p class="text-center text-black">
+    {{ "order_successfully.message" | translate }}
+  </p>
+
+  <div class="form-group">
+    <button
+      type="button"
+      class="btn main-btn rounded-pill w-100"
+      [routerLink]="['/']"
+    >
+      {{ "order_successfully.back_home" | translate }}
+    </button>
+  </div>
+</section>

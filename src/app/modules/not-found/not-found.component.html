@@ -1,0 +1,22 @@
+<app-navbar/>
+
+<section class="not-found-content container-fluid py-4">
+    <img src="./images/not-found.svg" alt="Not Found" class="img-fluid">
+
+    <h3 class="text-center text-white mt-4 display-6">{{ 'not_found.title' | translate }}</h3>
+
+    <h6 class="text-center text-white mt-2">{{ 'not_found.message' | translate }}</h6>
+
+
+    <div class="form-group">
+        <button
+                type="button"
+                class="btn main-btn rounded-pill w-100 mt-4"
+                [routerLink]="['/']"
+        >
+            {{ 'not_found.back_home' | translate }}
+        </button>
+    </div>
+</section>
+
+<app-footer />

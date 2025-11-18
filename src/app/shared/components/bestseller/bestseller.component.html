@@ -1,0 +1,57 @@
+@if (bestsellerList().length) {
+    <section class="bestseller-section pt-80 pb-80">
+        <div class="container">
+            <div class="section-header mb-lg-5 mb-3 text-center">
+                <h2>Discover Products That Speak for You.</h2>
+                <p>Inspire connections and creativity with personalized items designed to showcase your unique message — whether for your brand, business, or personal touch.</p>
+            </div>
+
+            <div class="product-tabs">
+                <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+                    @for (item of bestsellerList(); track item.id; let idx = $index) {
+                        <li class="nav-item" role="presentation">
+                            <button
+                                    class="nav-link"
+                                    [class.active]="idx === 0"
+                                    [id]="'pills-' +  item.id + '-tab'"
+                                    data-bs-toggle="pill"
+                                    [attr.data-bs-target]="'#pills-' + item.id"
+                                    type="button"
+                                    role="tab"
+                                    [attr.aria-controls]="'pills-' + item.id"
+                                    aria-selected="true"
+                            >
+                                {{ item?.title }}
+                            </button>
+                        </li>
+                    }
+                </ul>
+
+                <div class="tab-content" id="pills-tabContent">
+                    @for (item of bestsellerList(); track item.id; let idx = $index) {
+                        <div
+                                class="tab-pane fade"
+                                [class.show]="idx === 0"
+                                [class.active]="idx === 0"
+                                [id]="'pills-' + item.id"
+                                role="tabpanel"
+                                [attr.aria-labelledby]="'pills-' + item.id + '-tab'"
+                                tabindex="0"
+                        >
+                            <div class="row align-items-center">
+                                <div class="col-lg-6">
+                                    <h2>{{ item?.title }}</h2>
+                                    <p>{{ item?.description }}</p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <img [src]="item?.image_path" [alt]="item?.title"/>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+}

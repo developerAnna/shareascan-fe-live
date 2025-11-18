@@ -1,0 +1,20 @@
+services:
+  # Angular Frontend
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        API_URL: ${API_URL:-http://localhost:3390}
+    container_name: shareascan-frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-3395}:80"
+    environment:
+      - API_URL=${API_URL:-https://api.shareascan.com}
+    networks:
+      - shareascan-frontend-network
+
+networks:
+  shareascan-frontend-network:
+    driver: bridge

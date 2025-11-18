@@ -1,0 +1,205 @@
+<section class="container-fluid p-3 p-lg-5">
+  @if (isLoading()) {
+    <div class="mt-5 mb-5 mb-lg-2">
+      <app-spinner />
+    </div>
+  } @else {
+    <section class="product-details-section px-lg-5 pt-5 pb-80">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="product-thumbnail">
+              <div class="slider slider-nav thumb-image">
+                @for (image of productVariation()?.images; track $index) {
+                  <div class="thumbnail-image" tabindex="0">
+                    <div class="thumbImg">
+                      <img [src]="image" alt="Thumbnail Image" />
+                    </div>
+                  </div>
+                }
+              </div>
+              <div class="slider slider-thumbnail">
+                @for (image of productVariation()?.images; track $index) {
+                  <div class="slider-banner-image">
+                    <a
+                      [href]="image"
+                      data-fancybox="gallery"
+                      data-caption="Thumbnail Image"
+                    >
+                      <img [src]="image" alt="Thumbnail Image" />
+                    </a>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="product__detailinfo">
+              <h4 class="sec-title">{{ product()?.title }}</h4>
+              <div class="price">
+                <p>${{ productVariation()?.price }}</p>
+              </div>
+              <div class="desc">
+                <p>
+                  <span
+                    ><svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 30 30"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12.4261 3.60605C14.8831 3.05092 17.4537 3.3049 19.7546 4.3301C20.3851 4.61107 21.1241 4.32765 21.4051 3.69705C21.6861 3.06646 21.4026 2.32749 20.772 2.04652C17.9787 0.801922 14.858 0.493579 11.8751 1.16752L12.1506 2.38679L11.8751 1.16752C8.89229 1.84145 6.20721 3.46155 4.22034 5.78617C2.23348 8.1108 1.05128 11.0155 0.850077 14.0668C0.648866 17.1182 1.43942 20.1529 3.10384 22.7183C4.76827 25.2838 7.21737 27.2423 10.0859 28.3021L10.0859 28.3022C12.9544 29.3619 16.0887 29.466 19.0212 28.5989C21.9537 27.7318 24.5274 25.9402 26.3585 23.4908L25.4315 22.7979L26.3585 23.4908C28.1894 21.0416 29.1797 18.0661 29.1814 15.008V15.0073V13.8177C29.1814 13.1273 28.6218 12.5677 27.9314 12.5677C27.241 12.5677 26.6814 13.1273 26.6814 13.8177V15.0066C26.68 17.5255 25.8643 19.9765 24.3561 21.9939C22.8479 24.0115 20.7279 25.4873 18.3124 26.2015C15.8968 26.9157 13.3152 26.83 10.9523 25.9571C8.58943 25.0841 6.57209 23.4708 5.2011 21.3576C3.83011 19.2445 3.17892 16.7448 3.34466 14.2313C3.51039 11.7179 4.48418 9.32529 6.12077 7.41047C7.75737 5.49566 9.9691 4.16117 12.4261 3.60605ZM28.8157 5.54582C29.3036 5.05742 29.3032 4.26596 28.8148 3.77805C28.3264 3.29014 27.535 3.29054 27.0471 3.77894L14.9999 15.8382L12.0049 12.8432C11.5168 12.355 10.7253 12.355 10.2372 12.8432C9.74902 13.3313 9.74902 14.1228 10.2372 14.6109L14.1165 18.4902C14.351 18.7247 14.6691 18.8564 15.0007 18.8564C15.3323 18.8563 15.6503 18.7244 15.8847 18.4898L28.8157 5.54582Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </span>
+                  Nam bibendum non felis ut scelerisque
+                </p>
+                <p>
+                  <span
+                    ><svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 30 30"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12.4261 3.60605C14.8831 3.05092 17.4537 3.3049 19.7546 4.3301C20.3851 4.61107 21.1241 4.32765 21.4051 3.69705C21.6861 3.06646 21.4026 2.32749 20.772 2.04652C17.9787 0.801922 14.858 0.493579 11.8751 1.16752L12.1506 2.38679L11.8751 1.16752C8.89229 1.84145 6.20721 3.46155 4.22034 5.78617C2.23348 8.1108 1.05128 11.0155 0.850077 14.0668C0.648866 17.1182 1.43942 20.1529 3.10384 22.7183C4.76827 25.2838 7.21737 27.2423 10.0859 28.3021L10.0859 28.3022C12.9544 29.3619 16.0887 29.466 19.0212 28.5989C21.9537 27.7318 24.5274 25.9402 26.3585 23.4908L25.4315 22.7979L26.3585 23.4908C28.1894 21.0416 29.1797 18.0661 29.1814 15.008V15.0073V13.8177C29.1814 13.1273 28.6218 12.5677 27.9314 12.5677C27.241 12.5677 26.6814 13.1273 26.6814 13.8177V15.0066C26.68 17.5255 25.8643 19.9765 24.3561 21.9939C22.8479 24.0115 20.7279 25.4873 18.3124 26.2015C15.8968 26.9157 13.3152 26.83 10.9523 25.9571C8.58943 25.0841 6.57209 23.4708 5.2011 21.3576C3.83011 19.2445 3.17892 16.7448 3.34466 14.2313C3.51039 11.7179 4.48418 9.32529 6.12077 7.41047C7.75737 5.49566 9.9691 4.16117 12.4261 3.60605ZM28.8157 5.54582C29.3036 5.05742 29.3032 4.26596 28.8148 3.77805C28.3264 3.29014 27.535 3.29054 27.0471 3.77894L14.9999 15.8382L12.0049 12.8432C11.5168 12.355 10.7253 12.355 10.2372 12.8432C9.74902 13.3313 9.74902 14.1228 10.2372 14.6109L14.1165 18.4902C14.351 18.7247 14.6691 18.8564 15.0007 18.8564C15.3323 18.8563 15.6503 18.7244 15.8847 18.4898L28.8157 5.54582Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </span>
+                  Nam bibendum non felis ut scelerisque
+                </p>
+                <p>
+                  <span
+                    ><svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 30 30"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12.4261 3.60605C14.8831 3.05092 17.4537 3.3049 19.7546 4.3301C20.3851 4.61107 21.1241 4.32765 21.4051 3.69705C21.6861 3.06646 21.4026 2.32749 20.772 2.04652C17.9787 0.801922 14.858 0.493579 11.8751 1.16752L12.1506 2.38679L11.8751 1.16752C8.89229 1.84145 6.20721 3.46155 4.22034 5.78617C2.23348 8.1108 1.05128 11.0155 0.850077 14.0668C0.648866 17.1182 1.43942 20.1529 3.10384 22.7183C4.76827 25.2838 7.21737 27.2423 10.0859 28.3021L10.0859 28.3022C12.9544 29.3619 16.0887 29.466 19.0212 28.5989C21.9537 27.7318 24.5274 25.9402 26.3585 23.4908L25.4315 22.7979L26.3585 23.4908C28.1894 21.0416 29.1797 18.0661 29.1814 15.008V15.0073V13.8177C29.1814 13.1273 28.6218 12.5677 27.9314 12.5677C27.241 12.5677 26.6814 13.1273 26.6814 13.8177V15.0066C26.68 17.5255 25.8643 19.9765 24.3561 21.9939C22.8479 24.0115 20.7279 25.4873 18.3124 26.2015C15.8968 26.9157 13.3152 26.83 10.9523 25.9571C8.58943 25.0841 6.57209 23.4708 5.2011 21.3576C3.83011 19.2445 3.17892 16.7448 3.34466 14.2313C3.51039 11.7179 4.48418 9.32529 6.12077 7.41047C7.75737 5.49566 9.9691 4.16117 12.4261 3.60605ZM28.8157 5.54582C29.3036 5.05742 29.3032 4.26596 28.8148 3.77805C28.3264 3.29014 27.535 3.29054 27.0471 3.77894L14.9999 15.8382L12.0049 12.8432C11.5168 12.355 10.7253 12.355 10.2372 12.8432C9.74902 13.3313 9.74902 14.1228 10.2372 14.6109L14.1165 18.4902C14.351 18.7247 14.6691 18.8564 15.0007 18.8564C15.3323 18.8563 15.6503 18.7244 15.8847 18.4898L28.8157 5.54582Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </span>
+                  Nam bibendum non felis ut scelerisque
+                </p>
+              </div>
+              <div class="size-variations">
+                <div class="d-flex mb-2">
+                  <p>
+                    <strong>Size:</strong
+                    ><span class="ms-2">{{
+                      productVariation()?.size_name
+                    }}</span>
+                  </p>
+                  @if (productVariation()?.color_name) {
+                    <p>
+                      <strong>Color:</strong
+                      ><span class="ms-2">{{
+                        productVariation()?.color_name
+                      }}</span>
+                    </p>
+                  }
+                </div>
+
+                <div class="radio__group mb-2">
+                  @for (
+                    sizeGroup of groupedVariations();
+                    track sizeGroup.size_name
+                  ) {
+                    <button
+                      class="radio__button"
+                      [class.active]="selectedSize() === sizeGroup.size_name"
+                      (click)="selectSize(sizeGroup.size_name)"
+                    >
+                      <span>{{ sizeGroup.size_name }}</span>
+                    </button>
+                  }
+                </div>
+
+                <div class="radio__group">
+                  @if (selectedSize()) {
+                    @for (color of getColorsForSelectedSize(); track color) {
+                      <button
+                        class="color__button"
+                        [class.active]="selectedColor() === color"
+                        (click)="selectColor(color)"
+                      >
+                        <span>{{ color }}</span>
+                      </button>
+                    }
+                  }
+                </div>
+              </div>
+              <div class="product__shopping mb-4">
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button
+                      type="button"
+                      class="btn btn-number btn-minus"
+                      (click)="decrement()"
+                    >
+                      <span class=""><i class="fa-solid fa-minus"></i></span>
+                    </button>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control input-number"
+                    [value]="counterValue()"
+                  />
+                  <span class="input-group-btn">
+                    <button
+                      type="button"
+                      class="btn btn-plus btn-number"
+                      (click)="increment()"
+                    >
+                      <span class=""><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                  </span>
+                </div>
+                <div class="buy_now">
+                  <button
+                    class="btn"
+                    [disabled]="!selectedArtFiles() || isAddingToCart()"
+                    (click)="addToCart()"
+                  >
+                    Add to cart
+                  </button>
+                  <button [disabled]="isAddingToCart()" (click)="openModal()" class="btn">Customize</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <app-customize-product-modal
+      [artPositions]="artFilePositions()"
+      [qrCodes]="qrCodes()"
+      (handleQrSelections)="handleQrSelections($event)"
+    />
+    <app-product-description />
+
+    <app-product-reviews [productId]="productId()" />
+  }
+</section>
+
+@if (!isLoading()) {
+  <!-- Subscribe -->
+  <app-subscribe-email />
+}

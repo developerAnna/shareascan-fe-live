@@ -1,0 +1,94 @@
+.bestseller-section .product-tabs .nav-pills {
+    width: 100%;
+    margin: 0 auto;
+    background: #F5F5F5;
+    border-radius: 40px;
+    overflow-x: auto;
+        padding: 10px;
+            justify-content: center;
+}
+
+.product-tabs .nav-pills .nav-link {
+    padding: 0.8rem 2.4rem;
+    font-size: 20px;
+    color: #000000;
+}
+
+.product-tabs .nav-pills .nav-link.active,
+.product-tabs .nav-pills .show > .nav-link {
+    color: var(--white-color);
+    background-color: #6970FF;
+    border-radius: 40px;
+}
+
+.product-tabs .tab-content .tab-pane h2 {
+    font-size: 48px;
+    line-height: 54px;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+
+.product-tabs .tab-content .tab-pane p {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    padding-bottom: 20px;
+}
+
+@media screen and (max-width: 1540px) {
+    .product-tabs .nav-pills .nav-link {
+        font-size: 18px;
+    }
+
+    .product-tabs .tab-content .tab-pane h2 {
+        font-size: 40px;
+        line-height: 48px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .product-tabs .tab-content .tab-pane h2 {
+        font-size: 36px;
+        line-height: 44px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .bestseller-section .product-tabs .nav-pills {
+        margin-bottom: 2rem !important;
+    }
+
+    .product-tabs .tab-content .tab-pane h2 {
+        font-size: 24px;
+        line-height: 32px;
+        padding-bottom: 10px;
+    }
+
+    .product-tabs .nav-pills .nav-link {
+        font-size: 16px;
+        padding: 0.7rem 2rem;
+    }
+
+    .product-tabs .tab-content .tab-pane p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .product-tabs .tab-content .tab-pane h2 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .product-tabs .tab-content .tab-pane p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product-tabs .nav-pills .nav-link {
+        font-size: 14px;
+        padding: 0.7rem 1rem;
+    }
+}

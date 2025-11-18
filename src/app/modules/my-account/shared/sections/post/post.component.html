@@ -1,0 +1,114 @@
+<div class="post-composer">
+  <div class="composer-header">
+    <h2>Create Post</h2>
+    <p>Share what's on your mind</p>
+  </div>
+  
+  <div class="composer-content">
+    <div class="user-info">
+      <div class="avatar">
+        <i class="fa-regular fa-user"></i>
+      </div>
+      <div class="user-details">
+        <span class="username">Your Username</span>
+        <span class="post-privacy">Everyone can reply</span>
+      </div>
+    </div>
+    
+    <div class="post-input">
+      <textarea 
+        [(ngModel)]="postContent"
+        placeholder="What's happening?"
+        rows="4"
+        maxlength="280">
+      </textarea>
+      <div class="character-count">
+        {{ postContent.length }}/280
+      </div>
+    </div>
+    
+    <div class="media-upload" *ngIf="selectedFiles.length > 0 || uploadedFiles.length > 0">
+      <!-- Upload Progress -->
+      <div class="upload-progress" *ngIf="isUploading">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <span>Uploading files...</span>
+      </div>
+      
+      <!-- Selected Files Preview -->
+      <div class="media-preview" *ngIf="selectedFiles.length > 0">
+        <h4>Selected Files ({{ selectedFiles.length }})</h4>
+        <div class="media-grid">
+          <div *ngFor="let file of selectedFiles; let i = index" class="media-item">
+            <img *ngIf="file.type.startsWith('image')" [src]="getFilePreview(file)" alt="Preview">
+            <video *ngIf="file.type.startsWith('video')" [src]="getFilePreview(file)" controls></video>
+            <span *ngIf="!file.type.startsWith('image') && !file.type.startsWith('video')">{{ file.name }}</span>
+            <button class="remove-btn" (click)="removeFile(i)" title="Remove file">
+              <i class="fa-regular fa-times"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Uploaded Files -->
+      <div class="uploaded-files" *ngIf="uploadedFiles.length > 0">
+        <h4>Uploaded Files ({{ uploadedFiles.length }})</h4>
+        <div class="media-grid">
+          <div *ngFor="let file of uploadedFiles; let i = index" class="media-item uploaded">
+            <img *ngIf="file.mime_type.startsWith('image')" [src]="file.thumbnail_url" alt="Uploaded">
+            <video *ngIf="file.mime_type.startsWith('video')" [src]="file.url" controls></video>
+            <span *ngIf="!file.mime_type.startsWith('image') && !file.mime_type.startsWith('video')">{{ file.original_name }}</span>
+            <div class="file-info">
+              <small>{{ file.size | fileSize }}</small>
+              <small *ngIf="file.width && file.height">{{ file.width }}x{{ file.height }}</small>
+            </div>
+            <button class="remove-btn" (click)="removeFile(i)" title="Remove file">
+              <i class="fa-regular fa-times"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="composer-actions">
+      <div class="action-buttons">
+        <button type="button" class="action-btn" (click)="fileInput.click()" title="Add images">
+          <i class="fa-regular fa-image"></i>
+        </button>
+        <button type="button" class="action-btn" (click)="fileInput.click()" title="Add videos">
+          <i class="fa-regular fa-video"></i>
+        </button>
+        <button type="button" class="action-btn" title="Add poll (coming soon)">
+          <i class="fa-regular fa-poll"></i>
+        </button>
+        <button type="button" class="action-btn" title="Add emoji (coming soon)">
+          <i class="fa-regular fa-smile"></i>
+        </button>
+        <button type="button" class="action-btn" title="Schedule post (coming soon)">
+          <i class="fa-regular fa-calendar"></i>
+        </button>
+        <button type="button" class="action-btn" title="Add location (coming soon)">
+          <i class="fa-regular fa-location-dot"></i>
+        </button>
+      </div>
+      
+      <button 
+        type="submit" 
+        class="post-btn"
+        [disabled]="!postContent.trim() || isPosting || isUploading"
+        (click)="onSubmit()">
+        <span *ngIf="!isPosting">Post</span>
+        <span *ngIf="isPosting">Posting...</span>
+      </button>
+    </div>
+    
+    <input 
+      #fileInput
+      type="file" 
+      multiple 
+      accept="image/*,video/*,.mp4,.mov,.avi,.webm,.mkv"
+      (change)="onFileSelected($event)"
+      style="display: none;">
+  </div>
+</div>

@@ -1,0 +1,10 @@
+.shop-section-right-products-area-block-box .card {
+  background: #ffffff;
+  box-shadow: 5px 0px 45px 0px rgba(34, 45, 77, 0.1);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.placeholder:hover {
+  cursor: initial;
+}

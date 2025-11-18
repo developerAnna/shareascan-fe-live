@@ -1,0 +1,27 @@
+<section class="banner-carousel position-relative">
+    <swiper-container appSwiper [config]="config" #swiper>
+        @for (slide of slides; track slide.id) {
+            <swiper-slide
+                    class="custom-swiper-slide"
+                    [ngStyle]="{'background-color': slide.bgColor}"
+            >
+                <div class="swiper-caption">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-lg-6">
+                            <h5>{{ slide.title }}</h5>
+                            <!-- <h2>{{ slide.subtitle }}</h2> -->
+                            <p [innerHTML]="slide.description"></p>
+                        </div>
+
+                        <div class="col-12 col-lg-6">
+                            <img [src]="slide.image" alt="Slide"/>
+                        </div>
+                    </div>
+                </div>
+            </swiper-slide>
+        }
+    </swiper-container>
+    <!-- Navigation -->
+    <div class="swiper-button-next" tabindex="0" (click)="goNext()" (keyup)="onKeyUp($event, 'next')"></div>
+    <div class="swiper-button-prev" tabindex="0" (click)="goPrev()" (keyup)="onKeyUp($event, 'prev')"></div>
+</section>

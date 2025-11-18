@@ -1,0 +1,372 @@
+.table-responsive table {
+    background-color: #6970ff;
+    border-radius: 10px;
+}
+
+.table-responsive table thead {
+    border-radius: 10px;
+}
+
+.table-responsive table thead th:first-child {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.table-responsive table thead th {
+    background-color: #6970ff;
+    border-radius: 10px;
+    padding: 14px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+    border-bottom: 1px solid #6970ff;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-family: var(--rubik-font), serif;
+}
+
+.table-responsive table tbody td {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: #171a1f;
+    vertical-align: middle;
+    padding: 16px 20px;
+    border-color: #dddddd;
+}
+
+.table-responsive .bs-pagination .pagination {
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.table-responsive .bs-pagination .pagination .page-item {
+    margin-right: 10px;
+}
+
+.table-responsive .bs-pagination .pagination .page-item:first-child .page-link {
+    color: var(--darkgrey);
+    border-color: var(--darkgrey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-responsive .bs-pagination .pagination .page-item:last-child .page-link {
+    color: var(--darkgrey);
+    border-color: var(--darkgrey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-responsive .bs-pagination .pagination .page-link {
+    padding: 0px;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 100%;
+    text-align: center;
+    color: #ff8a90;
+    border-color: #ff8a90;
+    font-size: 16px;
+}
+
+.action-btn-sec {
+    border-color: #ff8a90;
+}
+
+.action-btn-sec:hover {
+    background-color: #ffffff;
+}
+
+.action-btn-sec a,
+.action-btn-sec span {
+    color: #000;
+}
+
+.table-responsive .bs-pagination .pagination .page-link.active {
+    background-color: #ff8a90;
+    border-color: #ff8a90;
+    color: #ffffff;
+}
+
+.account-body {
+    background: #f5f5f5;
+    padding: 40px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.shop-section-right-area {
+    margin: 0;
+}
+
+.shop-section-right-area .shop-section-right-products-area {
+    margin: 0;
+}
+
+.hot-Items
+.shop-section-right-area
+.shop-section-right-products-area
+.shop-section-right-products-area-block,
+.recently-viewed
+.shop-section-right-area
+.shop-section-right-products-area
+.shop-section-right-products-area-block {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.shop-section-right-area
+.shop-section-right-products-area
+.shop-section-right-products-area-block {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.shop-section-right-products-area-block-box .card {
+    background: #ffffff;
+    box-shadow: 5px 0px 45px 0px rgba(34, 45, 77, 0.1);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.shop-section-right-products-area-block-box .card .card-top img {
+    width: 100%;
+    height: 320px;
+    object-position: center;
+    object-fit: contain;
+}
+
+.shop-section-right-area
+.shop-section-right-products-area
+.shop-section-right-products-area-block
+.shop-section-right-products-area-block-box
+.card
+.card-title {
+    font-family: var(--rubik-font);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shop-section-right-area
+.shop-section-right-products-area
+.shop-section-right-products-area-block
+.shop-section-right-products-area-block-box
+.card
+.card-body
+.icon-wishlist {
+    position: absolute;
+    z-index: 1;
+    background-color: var(--white-color);
+    width: 40px;
+    height: 40px;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.icon-wishlist i {
+    color: #000000;
+}
+
+
+@media screen and (max-width: 1540px) {
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block {
+        gap: 20px;
+    }
+}
+
+
+@media screen and (max-width: 1440px) {
+    .account-body {
+        padding: 30px;
+    }
+
+    .recently-viewed .section-header h4,
+    .hot-Items .section-header h4 {
+        font-size: 24px !important;
+        line-height: 32px;
+    }
+
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block
+    .shop-section-right-products-area-block-box
+    .card
+    .card-title {
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .hot-Items
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block,
+    .recently-viewed
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .shop-section-right-area {
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .table-responsive table thead th {
+        padding: 12px 16px;
+        font-size: 15px;
+    }
+
+    .table-responsive table thead th,
+    .table-responsive table tbody td {
+        white-space: nowrap;
+    }
+
+    .table-responsive table tbody td {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .table-responsive .bs-pagination .pagination .page-link {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+    }
+
+    .hot-Items
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block,
+    .recently-viewed
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block
+    .shop-section-right-products-area-block-box
+    .card
+    .card-title {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block
+    .shop-section-right-products-area-block-box
+    .card
+    p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .table-responsive table thead th {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .account-body {
+        padding: 30px 20px;
+    }
+
+    .table-responsive .bs-pagination .pagination .page-link {
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+    }
+
+    .recently-viewed .section-header h4,
+    .hot-Items .section-header h4 {
+        font-size: 20px !important;
+        line-height: 28px;
+    }
+
+    .hot-Items
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block,
+    .recently-viewed
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block
+    .shop-section-right-products-area-block-box
+    .card
+    .card-title {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .shop-section-left-area
+    .shop-section-left-filters
+    .shop-section-left-filter-boxes
+    .list-group-item,
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block
+    .shop-section-right-products-area-block-box
+    .card
+    p {
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .recently-viewed
+    .shop-section-right-area
+    .shop-section-right-products-area
+    .shop-section-right-products-area-block {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}

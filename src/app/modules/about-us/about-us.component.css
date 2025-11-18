@@ -1,0 +1,574 @@
+.about-section {
+  position: relative;
+  width: 100%;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  background: url('../../../../public/images/rounds-hape.png') no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  top: 120px;
+  left: 0;
+  z-index: -1;
+}
+
+.about-section .about-content h2 {
+  font-size: 48px;
+  line-height: 54px;
+  color: var(--black-color);
+  padding-bottom: 15px;
+  font-weight: 500;
+}
+
+.about-section .about-content p {
+  font-size: 18px;
+  line-height: 28px;
+  padding-bottom: 20px;
+}
+
+.about-section .about-content .btn {
+  background: #000000;
+  color: var(--white-color);
+  padding: 0.75rem 2rem;
+  border-radius: 40px;
+}
+
+.about-section .about-content .btn-arrow {
+  padding: 0.75rem 1rem;
+  margin-left: -15px;
+}
+
+.about-section .round-vector {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  z-index: -1;
+}
+
+.aboutneque-section .container h2 {
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+
+.aboutneque-section .container p {
+  color: #000000;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  padding-bottom: 15px;
+}
+
+.aboutduis-images .uppar-text {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 20px;
+  width: 70%;
+  color: #000000;
+  font-size: 18px;
+  box-shadow: 5px 0px 45px 0px rgba(34, 45, 77, 0.1);
+}
+
+.aboutduis-section .aboutduis-content h4 {
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+
+.aboutduis-section .aboutduis-content p {
+  color: #000000;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  padding-bottom: 15px;
+}
+
+.aboutduis-section .aboutduis-content p:last-child {
+  padding: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.aboutduis-section .aboutduis-content p:last-child::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: #ff8a90;
+  border-radius: 4px;
+  top: 0px;
+  left: 0px;
+}
+
+.heading-lg {
+  font-family: var(--body-font);
+  font-size: 50px;
+  line-height: 60px;
+  color: var(--black-color);
+}
+
+.heading-xsm {
+  font-family: var(--rubik-font);
+  font-size: 22px;
+  line-height: 30px;
+  color: var(--black-color);
+}
+
+.about-steps-section {
+  padding: 150px 0;
+}
+
+.about-steps-section .container {
+  max-width: 1440px;
+}
+
+.about-steps-section .about-steps-section-block {
+  background-color: #ceebd550;
+  border-radius: 20px;
+  padding: 100px 70px;
+}
+
+.about-steps-area {
+  padding-top: 60px;
+}
+
+.about-steps-area .about-steps-area-box {
+  width: 100%;
+  height: 100%;
+  min-height: 432px;
+}
+
+.about-steps-area .about-steps-area-box.top-dotted::before {
+  content: '';
+  width: 95%;
+  height: 100%;
+  display: inline-block;
+  background-image: url('../../../../public/images/step-dotted-line.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  z-index: -1;
+  top: -125px;
+  left: auto;
+  right: 0;
+}
+
+.about-steps-area .about-steps-area-box.bottom-dotted::before {
+  content: '';
+  width: 95%;
+  height: 100%;
+  display: inline-block;
+  background-image: url('../../../../public/images/step-dotted-line.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  z-index: -1;
+  bottom: -110px;
+  left: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+.about-steps-area .about-steps-area-box.bottom-dotted.last::before {
+  background-image: url('../../../../public/images/step-dotted-line-last.png');
+  transform: rotate(0deg);
+  left: auto;
+}
+
+.about-steps-area .about-steps-area-box.top-solid::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background-image: url('../../../../public/images/step-solid-line.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  z-index: -1;
+  top: -125px;
+  left: 0;
+  right: 0;
+}
+
+.about-steps-area .about-steps-area-box.bottom-solid::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background-image: url('../../../../public/images/step-solid-line.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  z-index: -1;
+  bottom: -110px;
+  left: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+.about-steps-area .about-steps-area-box .card .card-body .title-sm {
+  font-family: var(--rubik-font);
+  font-size: 18px;
+  color: var(--main-color);
+}
+
+.about-steps-area .about-steps-area-box .card .card-body .card-title {
+  font-family: var(--rubik-font);
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+}
+
+.about-steps-area .about-steps-area-box .card .card-body .card-text {
+  font-family: var(--rubik-font);
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.about-steps-area .about-steps-area-box .card .card-body .count-number {
+  background-color: #ff8a90;
+  width: 60px;
+  height: 60px;
+  font-family: var(--rubik-font);
+  font-size: 25px;
+  line-height: 20px;
+  position: absolute;
+  top: 52%;
+  transform: translateY(-50%);
+  left: -30px;
+  z-index: 2;
+}
+
+.about-scanme-section {
+  padding: 0;
+}
+
+ul.bullet-list-items {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul.bullet-list-items li {
+  list-style-type: none;
+  font-family: var(--rubik-font);
+  font-size: 25px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--black-color);
+  margin-top: 40px;
+}
+
+ul.bullet-list-items li > span {
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: normal;
+  display: block;
+  margin-top: 15px;
+}
+
+ul.bullet-list-items.bullet-icons li {
+  position: relative;
+  padding-left: 80px;
+}
+
+ul.bullet-list-items.bullet-icons li::before {
+  content: '';
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--lightgreen);
+  background-image: url('../../../../public/images/white-arrow-bullet.svg');
+  background-repeat: no-repeat;
+  background-size: 30px auto;
+  background-position: center;
+  border-radius: 15px;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+}
+
+.about-commodo-section {
+  padding: 150px 0 70px;
+}
+
+.about-commodo-section .container-fluid {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.about-commodo-section .about-commodo-block {
+  background-color: var(--lightbrown);
+  border-radius: 30px;
+  padding: 150px 20px 200px;
+  background-image: url('../../../../public/images/about-commodo-bg.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top 50px right;
+}
+
+.about-commodo-section .about-commodo-block hgroup {
+  max-width: 1220px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-commodo-section .about-commodo-block .heading-lg .highlight-brown {
+  background-color: var(--brown);
+  border-radius: 13px;
+  padding: 0 0.5rem;
+}
+
+.section-header h2 {
+  font-size: 48px;
+  line-height: 54px;
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+
+
+@media screen and (max-width: 1540px) {
+  .aboutneque-section .container h2,
+  .features-inner .card .badge h2 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .about-steps-section .about-steps-section-block {
+    padding: 60px 70px;
+  }
+
+  about-steps-area .about-steps-area-box .card .card-body .card-text {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .about-steps-section {
+    padding: 80px 0;
+  }
+
+  .about-commodo-section {
+    padding: 80px 0 0px;
+  }
+
+  .section-header h2 {
+    font-size: 42px;
+    line-height: 48px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .about-steps-section .about-steps-section-block {
+    padding: 60px 40px;
+  }
+
+  ul.bullet-list-items li {
+    font-size: 20px;
+    line-height: 18px;
+    margin-top: 30px;
+  }
+
+  ul.bullet-list-items li > span {
+    margin-top: 10px;
+  }
+
+  .about-commodo-section .about-commodo-block {
+    padding: 120px 20px 140px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .section-header h2 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+}
+
+@media screen and (max-width: 991px) {
+  .aboutduis-images .uppar-text {
+    bottom: 30px;
+    font-size: 16px;
+  }
+
+  .aboutduis-section .aboutduis-images img {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+
+  .aboutneque-section .container h2 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .about-steps-section .about-steps-section-block {
+    padding: 40px 40px 20px;
+  }
+
+  .aboutduis-section .aboutduis-content h4,
+  .heading-lg {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .banner-section,
+  .about-steps-area .about-steps-area-box {
+    min-height: auto;
+    margin-bottom: 40px;
+  }
+
+  .about-steps-area .about-steps-area-box .card {
+    text-align: left !important;
+    padding: 0px 0px 0px 60px !important;
+  }
+
+  .about-steps-area .about-steps-area-box .card .card-body {
+    padding: 0px;
+  }
+
+  .about-steps-area .about-steps-area-box .card .card-body .count-number {
+    top: 0px;
+    left: -15px;
+    transform: unset;
+    font-size: 20px;
+  }
+
+  .about-steps-area .about-steps-area-box .card .card-body .card-title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .about-steps-area .about-steps-area-box .card .card-body .title-sm,
+  .about-steps-area .about-steps-area-box .card .card-body .card-text {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .about-steps-area .about-steps-area-box.bottom-solid::after,
+  .about-steps-area .about-steps-area-box.top-dotted::before,
+  .about-steps-area .about-steps-area-box.top-solid::after,
+  .about-steps-area .about-steps-area-box.bottom-dotted::before {
+    display: none;
+  }
+
+  .about-commodo-section .about-commodo-block {
+    padding: 100px 15px 80px;
+  }
+
+  .about-commodo-section .container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .section-header h2 {
+    font-size: 28px;
+    line-height: 38px;
+    padding-bottom: 10px;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .heading-lg,
+  .aboutduis-section .aboutduis-content h4,
+  .aboutneque-section .container h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  ul.bullet-list-items.bullet-icons li {
+    padding-left: 65px;
+  }
+
+  ul.bullet-list-items li {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  ul.bullet-list-items li > span {
+    margin-top: 5px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .about-commodo-section {
+    padding: 40px 0 0px;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+  .about-steps-section .about-steps-section-block {
+    padding: 30px 30px 20px;
+  }
+
+  .about-steps-area {
+    padding-top: 30px;
+  }
+
+  .about-steps-area .about-steps-area-box {
+    margin-bottom: 30px;
+  }
+
+  .about-steps-area .about-steps-area-box .card .card-body .count-number {
+    width: 55px;
+    height: 55px;
+  }
+
+  .about-scanme-block .about-scanme-block-left img {
+    margin-bottom: 20px;
+  }
+
+  ul.bullet-list-items li {
+    margin-top: 20px;
+  }
+
+  .about-commodo-section .about-commodo-block {
+    padding: 60px 15px 60px;
+  }
+
+  .about-commodo-section .about-commodo-block .heading-lg {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .section-header h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .product__detailinfo .sec-title,
+  .section-header h2,
+  .about-section .about-content h2,
+  .heading-lg,
+  .aboutduis-section .aboutduis-content h4,
+  .aboutneque-section .container h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .about-steps-area .about-steps-area-box .card .card-body .count-number {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+}

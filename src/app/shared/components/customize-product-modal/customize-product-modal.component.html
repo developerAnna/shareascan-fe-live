@@ -1,0 +1,89 @@
+<ng-template #customizeModal let-modal>
+    <div class="modal-header border-0" id="customizeModal">
+        <button
+                type="button"
+                class="btn-close"
+                (click)="modal.close()"
+                aria-label="Close"
+        ></button>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <div class="positions-panel">
+                <h5 class="mb-4">{{ "product_detail.positionTitle" | translate }}</h5>
+                <div class="positions-grid">
+                    @for (position of artPositions(); track position) {
+                        <button
+                                (click)="selectPosition(position)"
+                                [class.active]="selectedPosition() === position"
+                                class="position-card"
+                        >
+                            {{ position }}
+                        </button>
+                    }
+
+                    <button class="position-card mt-xl-3" (click)="saveSelections()">
+                        {{ "product_detail.saveButton" | translate }}
+                    </button>
+                </div>
+            </div>
+
+            <div class="qr-panel">
+                <div class="preview-section">
+                    <h5 class="mb-3">{{ "product_detail.selectedTitle" | translate }}</h5>
+                    <div class="d-flex flex-row gap-2 flex-wrap">
+                        @for (entry of selectionsArray; track entry.position) {
+                            <div class="selected-qr-card">
+                                @if (entry?.qr?.qr_image_path) {
+                                    <img
+                                            [src]="entry?.qr?.qr_image_path"
+                                            class="preview-image"
+                                            alt="qrCodes"
+                                    />
+                                } @else {
+                                    <div class="not-qr-selected"></div>
+                                }
+                                <p>{{ entry.position }}</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="search-section">
+                    <div class="qr-grid">
+                        @for (qr of paginatedQrs(); track qr.id) {
+                            <button
+                                    (click)="selectQr(qr)"
+                                    [class.selected]="selectedQr()?.id === qr.id"
+                                    class="qr-card"
+                            >
+                                <img id="qrImage-{{ qr.id }}" [src]="qr.qr_image_path" alt="QR Design"/>
+                            </button>
+                        } @empty {
+                            <div class="empty-state">
+                                <p>{{ "product_detail.emptyState" | translate }}</p>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="bs-pagination">
+                        <nav>
+                            <ul class="pagination">
+                                @for (page of getPagesArray(); track page) {
+                                    <button class="page-item btn" (click)="currentPage.set(page)">
+                                        <a
+                                                class="page-link"
+                                                [class.active]="currentPage() === page"
+                                        >
+                                            {{ page }}
+                                        </a>
+                                    </button>
+                                }
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

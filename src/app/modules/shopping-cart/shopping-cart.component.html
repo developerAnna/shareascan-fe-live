@@ -1,0 +1,170 @@
+<section class="container-fluid p-3 p-lg-5">
+  <app-breadcrumb
+    title="{{ 'shopping_cart.title' | translate }}"
+    [bgColor]="headerColor()"
+    [breadcrumbColor]="breadcrumbColor()"
+    [page]="pageName()"
+  />
+
+  @if (isLoading()) {
+    <div class="mt-5 mb-5 mb-lg-2">
+      <app-spinner />
+    </div>
+  } @else {
+    <section class="shopping-cart px-lg-5 pt-80">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-9">
+            @if (cartItems().length > 0) {
+              <div class="table-cart">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th width="25%">Product</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                      <th>Total</th>
+                      <th class="text-center">Remove</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @for (cartItem of cartItems(); track cartItem.id) {
+                      <tr class="cart-item">
+                        <td>
+                          <div class="item-info">
+                            <img
+                              [src]="cartItem?.product_images?.image_url"
+                              alt="Product"
+                            />
+                          </div>
+                        </td>
+                        <td>${{ cartItem.price }}</td>
+                        <td>
+                          <div class="quantity">
+                            <button
+                              class="minus-btn"
+                              [disabled]="isActionCart()"
+                              (click)="decrement(cartItem.id)"
+                            >
+                              -
+                            </button>
+                            <span>{{ cartItem.qty }}</span>
+                            <button
+                              class="plus-btn"
+                              [disabled]="isActionCart()"
+                              (click)="increment(cartItem.id)"
+                            >
+                              +
+                            </button>
+                          </div>
+                        </td>
+                        <td>${{ cartItem.total }}</td>
+                        <td class="text-center">
+                          <button
+                            [disabled]="isRemovingItem() || isActionCart()"
+                            class="remove-btn"
+                            (click)="removeItem(cartItem.id)"
+                          >
+                            -
+                          </button>
+                        </td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+            } @else {
+              <div class="w-100 text-center">
+                <p class="lead">Your cart is empty</p>
+              </div>
+            }
+
+            <div class="subtotal">
+              <h4>Subtotal : ${{ subtotal() }}</h4>
+              <p>Praesent tincidunt erat massa, id lacinia leo condimentum</p>
+              <textarea
+                rows="3"
+                placeholder="Add a note to your order"
+                class="form-control"
+              >
+              </textarea>
+              <div class="btn-list">
+                <a
+                  (click)="onContinueShopping()"
+                  (keydown.enter)="onContinueShopping()"
+                  (keydown.space)="onContinueShopping()"
+                  class="btn me-2 mb-2"
+                  tabindex="0"
+                  role="button"
+                  [class.disabled]="isActionCart()"
+                >
+                  Continue Shipping
+                </a>
+
+                <a
+                  (click)="onCheckout()"
+                  (keydown.enter)="onCheckout()"
+                  (keydown.space)="onCheckout()"
+                  class="btn me-2 mb-2"
+                  tabindex="0"
+                  role="button"
+                  [class.disabled]="isActionCart() || cartItems().length! <= 0"
+                >
+                  Check Out
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Shipping Estimates -->
+          <div class="col-lg-3">
+            <div class="shipping-estimates">
+              <h4>Get shipping estimates</h4>
+              <div class="shipping-inner">
+                <form action="" id="">
+                  <div class="form-group mb-4">
+                    <label for="estimateShipping">Country</label>
+                    <input
+                      id="estimateShipping"
+                      class="form-control"
+                      type="text"
+                      placeholder="United States"
+                    />
+                  </div>
+                  <div class="form-group mb-4">
+                    <label for="estimateState">State</label>
+                    <input
+                      id="estimateState"
+                      class="form-control"
+                      type="text"
+                      placeholder="Alabama"
+                    />
+                  </div>
+                  <div class="form-group mb-4">
+                    <label for="estimatePostalCode">Postal/Zip Code</label>
+                    <input
+                      id="estimatePostalCode"
+                      class="form-control"
+                      type="text"
+                      placeholder=""
+                    />
+                  </div>
+                  <div class="form-group mb-4">
+                    <button type="button" class="btn btn-primary black">
+                      Purchase
+                    </button>
+                    <button type="button" class="btn btn-primary white">
+                      Calculate Shipping
+                    </button>
+                  </div>
+                </form>
+                <div class="payment mb-4">
+                  <img src="./images/payment.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+</section>

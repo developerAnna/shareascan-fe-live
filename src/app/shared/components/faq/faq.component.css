@@ -1,0 +1,65 @@
+.faq-section .accordion-item {
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: none;
+  -webkit-box-shadow: 5px 0px 45px 0px rgba(34, 45, 77, 0.1);
+  -moz-box-shadow: 5px 0px 45px 0px rgba(34, 45, 77, 0.1);
+  box-shadow: 5px 0px 45px 0px rgba(34, 45, 77, 0.1);
+  padding: 10px;
+}
+
+.faq-section .accordion-button:not(.collapsed) {
+  background: rgba(105, 112, 255, 0.1);
+  border-bottom: 1px solid #d9d9d9;
+  color: #000000;
+}
+
+.faq-section .accordion-button:focus {
+  box-shadow: none;
+}
+
+.faq-section .accordion-item .accordion-button {
+  font-weight: 500;
+  padding: 14px 14px;
+}
+
+.faq-section .accordion-item .accordion-body {
+  background: rgba(105, 112, 255, 0.1);
+  color: #636363;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.faq-section .accordion-button::after {
+  background-image: unset;
+  font-family: 'Font Awesome 6 Pro';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  color: #636363;
+  content: '\f13a';
+}
+
+.faq-section .accordion-button:not(.collapsed)::after {
+  color: var(--primary-color);
+}
+
+@media screen and (max-width: 480px) {
+  .faq-section .accordion-item .accordion-button {
+    font-weight: 400;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .accordion-item .accordion-body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .faq-section .accordion-item .accordion-button {
+    padding: 10px;
+  }
+}

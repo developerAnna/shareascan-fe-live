@@ -1,0 +1,22 @@
+@if(paymentType() === 'PayPal') {
+    <button
+            type="button"
+            class="btn btn-primary paypal-btn"
+            (click)="onHandlePayment()"
+            [disabled]="disabled()"
+    >
+        <img src="./images/paypal.svg" alt="PayPal" class="me-1">
+        <span>{{ btnText() }}</span>
+    </button>
+}
+
+@if(paymentType() === 'Stripe') {
+    <button
+            type="button"
+            class="btn btn-primary stripe-btn"
+            (click)="onHandlePayment()"
+            [disabled]="disabled()"
+    >
+        <span>{{ btnText() }}</span>
+    </button>
+}

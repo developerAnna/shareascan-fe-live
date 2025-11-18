@@ -1,0 +1,36 @@
+.benefits-section .benefits-card {
+    background: #F5F5F5;
+    padding: 30px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.benefits-section .benefits-card p {
+    font-size: 18px;
+    color: #000000;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 991px) {
+    .benefits-section .benefits-card {
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .benefits-section .benefits-card p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .benefits-section .benefits-card {
+        margin-bottom: 20px;
+    }
+
+    .benefits-section .benefits-card {
+        margin-bottom: 20px;
+    }
+}

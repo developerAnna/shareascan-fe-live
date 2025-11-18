@@ -1,0 +1,321 @@
+<section class="container-fluid px-lg-5">
+    <app-breadcrumb
+            [title]="'payment.title' | translate"
+            [bgColor]="headerColor()"
+            [breadcrumbColor]="breadcrumbColor()"
+    />
+</section>
+
+<section class="checkout-section pt-80 pb-80 px-lg-5">
+    <div class="container-fluid">
+        <div class="section-header">
+            <h2>{{ "payment.title" | translate }}</h2>
+        </div>
+        <div class="row">
+            <!-- Billing Information -->
+            <section class="col-lg-12">
+                <div class="checkout-inner">
+                    <div class="sec-title">
+                        <h4>{{ "payment.billingInfo" | translate }}</h4>
+                    </div>
+                    <form [formGroup]="billingForm" id="billingForm">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group mb-4">
+                                    <label for="phoneNumber">{{
+                                            "payment.phoneNumber" | translate
+                                        }}</label>
+                                    <input
+                                            id="phoneNumber"
+                                            type="text"
+                                            formControlName="phoneNumber"
+                                            class="form-control"
+                                            [ngClass]="{
+                      'is-invalid':
+                        submitted() && billingControls.phoneNumber.errors,
+                    }"
+                                    />
+                                    @if (submitted() &&
+                                    billingControls.phoneNumber.errors?.["pattern"]) {
+                                        <div class="invalid-feedback">
+                                            {{ "payment.phoneInvalid" | translate }}
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group mb-4">
+                                    <label for="address">{{
+                                            "payment.address" | translate
+                                        }}</label>
+                                    <textarea
+                                            id="address"
+                                            rows="4"
+                                            formControlName="address"
+                                            class="form-control"
+                                            [ngClass]="{
+                      'is-invalid':
+                        submitted() && billingControls.address.errors,
+                    }"
+                                    ></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group mb-4">
+                                    <label for="address">{{
+                                            "payment.address2" | translate
+                                        }}</label>
+                                    <textarea
+                                            rows="4"
+                                            formControlName="address2"
+                                            class="form-control"
+                                            [ngClass]="{
+                      'is-invalid':
+                        submitted() && billingControls.address2.errors,
+                    }"
+                                    ></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-4">
+                                    <label for="city">{{ "payment.city" | translate }}</label>
+                                    <input
+                                            id="city"
+                                            type="text"
+                                            formControlName="city"
+                                            class="form-control"
+                                            [ngClass]="{
+                                              'is-invalid': submitted() && billingControls.city.errors,
+                                            }"
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-4">
+                                    <label for="country">
+                                        {{
+                                            "payment.country" | translate
+                                        }}
+                                    </label>
+                                    <input
+                                            id="country"
+                                            type="text"
+                                            formControlName="country"
+                                            class="form-control"
+                                            [ngClass]="{
+                                              'is-invalid':
+                                                submitted() && billingControls.country.errors,
+                                            }"
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-4">
+                                    <label for="region">{{ "payment.region" | translate }}</label>
+                                    <input
+                                            id="region"
+                                            type="text"
+                                            formControlName="region"
+                                            class="form-control"
+                                            [ngClass]="{
+                                              'is-invalid':
+                                                submitted() && billingControls.region.errors,
+                                            }"
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-4">
+                                    <label for="postalCode">
+                                        {{
+                                            "payment.postalCode" | translate
+                                        }}
+                                    </label>
+                                    <input
+                                            id="postalCode"
+                                            type="text"
+                                            formControlName="postalCode"
+                                            class="form-control"
+                                            [ngClass]="{
+                                              'is-invalid':
+                                                submitted() && billingControls.postalCode.errors,
+                                            }"
+                                    />
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group mb-4">
+                                    <label for="address">{{ "payment.note" | translate }}</label>
+                                    <textarea
+                                            rows="3"
+                                            formControlName="note"
+                                            class="form-control"
+                                            [ngClass]="{
+                                              'is-invalid': submitted() && billingControls.note.errors,
+                                            }"
+                                    ></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3 mb-md-0">
+                                <app-payment-button
+                                        [paymentType]="'PayPal'"
+                                        [btnText]="'Pay Now'"
+                                        [disabled]="isProcessing()"
+                                        (payment)="onSubmit('paypal')"
+                                />
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <app-payment-button
+                                        [paymentType]="'Stripe'"
+                                        [btnText]="'Pay with Stripe'"
+                                        [disabled]="isProcessing()"
+                                        (payment)="onSubmit('stripe')"
+                                />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            @if (showPaymentForm) {
+                <!-- Credit Card Payment -->
+                <section class="col-lg-6">
+                    <div class="checkout-inner" style="background: #ffdc62">
+                        <div class="sec-title">
+                            <h4>{{ "payment.paymentMethod" | translate }}</h4>
+                        </div>
+                        <form [formGroup]="paymentForm" id="paymentForm">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-check mb-3">
+                                        <input
+                                                class="form-check-input"
+                                                type="radio"
+                                                formControlName="paymentMethod"
+                                                id="creditCardRadio"
+                                        />
+                                        <label
+                                                class="form-check-label"
+                                                for="creditCardRadio"
+                                        >
+                                            {{ "payment.creditCard" | translate }}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group mb-3">
+                                        <img
+                                                src="images/payment.png"
+                                                alt="Accepted payment methods"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group mb-4">
+                                        <label for="cardNumber">
+                                            {{ "payment.cardNumber" | translate }}</label
+                                        >
+                                        <input
+                                                id="cardNumber"
+                                                type="text"
+                                                formControlName="cardNumber"
+                                                class="form-control"
+                                                [ngClass]="{
+                      'is-invalid':
+                        submitted() && paymentControls.cardNumber.errors,
+                    }"
+                                                placeholder="1234 5678 9012 3456"
+                                        />
+                                        @if (submitted() && paymentControls.cardNumber.errors) {
+                                            <div class="invalid-feedback">
+                                                @if (paymentControls.cardNumber.errors!["pattern"]) {
+                                                    <div>{{ "payment.cardNumberInvalid" | translate }}</div>
+                                                }
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group mb-4">
+                                        <label for="expirationMonth">{{
+                                                "payment.expirationMonth" | translate
+                                            }}</label>
+                                        <input
+                                                id="expirationMonth"
+                                                type="text"
+                                                formControlName="expirationMonth"
+                                                class="form-control"
+                                                [ngClass]="{
+                      'is-invalid':
+                        submitted() && paymentControls.expirationMonth.errors,
+                    }"
+                                                placeholder="MM"
+                                        />
+                                        @if (submitted() && paymentControls.expirationMonth.errors) {
+                                            <div class="invalid-feedback">
+                                                @if (paymentControls.expirationMonth.errors!["pattern"]) {
+                                                    <div>{{ "payment.monthInvalid" | translate }}</div>
+                                                }
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group mb-4">
+                                        <label for="expirationYear">
+                                            {{
+                                                "payment.expirationYear" | translate
+                                            }}
+                                        </label>
+                                        <input
+                                                id="expirationYear"
+                                                type="text"
+                                                formControlName="expirationYear"
+                                                class="form-control"
+                                                [ngClass]="{
+                      'is-invalid':
+                        submitted() && paymentControls.expirationYear.errors,
+                    }"
+                                                placeholder="YYYY"
+                                        />
+                                        @if (submitted() && paymentControls.expirationYear.errors) {
+                                            <div class="invalid-feedback">
+                                                @if (paymentControls.expirationYear.errors!["pattern"]) {
+                                                    <div>{{ "payment.yearInvalid" | translate }}</div>
+                                                }
+                                                @if (paymentControls.expirationYear.errors!["min"]) {
+                                                    <div>{{ "payment.yearMin" | translate }}</div>
+                                                }
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group mb-4">
+                                        <label for="cvv">{{ "payment.cvv" | translate }}</label>
+                                        <input
+                                                id="cvv"
+                                                type="text"
+                                                formControlName="cvv"
+                                                class="form-control"
+                                                [ngClass]="{
+                      'is-invalid': submitted() && paymentControls.cvv.errors,
+                    }"
+                                                placeholder="123"
+                                        />
+                                        @if (submitted() && paymentControls.cvv.errors) {
+                                            <div class="invalid-feedback">
+                                                @if (paymentControls.cvv.errors!["pattern"]) {
+                                                    <div>{{ "payment.cvvInvalid" | translate }}</div>
+                                                }
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            }
+        </div>
+    </div>
+</section>
