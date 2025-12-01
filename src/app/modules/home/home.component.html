@@ -1,3 +1,18 @@
 <app-navbar />
 <router-outlet />
 <app-footer />
+
+<!-- Scroll to top button with progress ring -->
+<div id="scrollBtn" role="button" tabindex="0" [attr.aria-hidden]="!showButton" [ngClass]="{ 'show': showButton }" (click)="scrollToTop()" (keydown.enter)="scrollToTop()" (keydown.space)="scrollToTop()">
+	<svg>
+		<circle cx="27.5" cy="27.5" r="23"></circle>
+		<circle #progressRing class="progress-ring" cx="27.5" cy="27.5" r="23" stroke="#6970ff"></circle>
+	</svg>
+
+	<!-- Percentage -->
+	<span id="scrollText">{{ scrollPercent }}%</span>
+
+	<!-- Arrow on hover -->
+	<span id="arrowUp" aria-hidden="true">↑</span>
+
+</div>
