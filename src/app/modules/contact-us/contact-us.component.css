@@ -37,7 +37,7 @@
 .contact-address .address-box {
     position: relative;
     background: #ffdc62;
-    padding: 40px;
+    padding: 40px 40px 80px;
     border-radius: 40px;
 }
 
@@ -61,7 +61,7 @@
 
 .contact-address .address-box .social-media {
     position: absolute;
-    bottom: 60px;
+    /* bottom: 60px; */
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -77,7 +77,19 @@
 
 .contact-address .address-box .social-media .list-inline-item:not(:last-child) {
     margin-right: 10px;
-        margin-bottom: 40px;
+    margin-bottom: 30px;
+}
+
+.contact-address .address-box .social-media .list-inline-item {
+    display: inline-block; /* keeps margin-bottom effective */
+    margin-bottom: 16px; /* add vertical spacing for stacked layout */
+}
+
+/* Ensure address box is horizontally centered on large screens */
+.contact-address .address-box.mx-lg-auto,
+.contact-address .mx-lg-auto .address-box {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media screen and (max-width: 1540px) {
@@ -102,8 +114,11 @@
     }
 }
 
-
-
+@media screen and (max-width: 1320px) {
+    .contact-address .address-box {
+        padding: 40px 40px 120px;
+    }
+}
 @media screen and (max-width: 1024px) {
 .contact-address .address-box .social-media {
     position: relative;

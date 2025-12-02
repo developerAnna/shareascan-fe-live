@@ -11,7 +11,9 @@
     <div class="sec-title text-center mb-lg-5 mb-3">
       <h2>{{ "contact_us.form_title" | translate }}</h2>
     </div>
-    <form
+    <div class="row">
+      <div class="col-md-12">
+        <form
       [formGroup]="contactForm"
       (ngSubmit)="onSubmit()"
       class="contact-form needs-validation"
@@ -89,20 +91,18 @@
           </div>
         </div>
       </div>
-    </form>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="contact-address px-lg-4 pb-80">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-8">
-        <div class="google-map">
-          <img src="./images/google-maps.png" alt="Maps" />
-        </div>
-      </div>
-      <div class="col-lg-4 address-box">
-        <div class="address-flex mb-4">
+      <!-- map was removed per request; address column will take full width on md and keep lg styling -->
+      <div class="col-md-12 col-lg-4 mx-lg-auto address-box">
+        <div class="address-flex mb-5">
           <div class="left-icon">
             <img src="images/call.png" alt="Phone" />
           </div>
@@ -114,7 +114,7 @@
             </p>
           </div>
         </div>
-        <div class="address-flex mb-4">
+        <div class="address-flex mb-5">
           <div class="left-icon">
             <img src="images/email.png" alt="Email" />
           </div>
@@ -126,7 +126,7 @@
           </div>
         </div>
         <div class="social-media">
-          <ul class="list-inline mb-0">
+          <ul class="list-inline">
             <li class="list-inline-item"><a href="#">Facebook</a></li>
             <li class="list-inline-item"><a href="#">Youtube</a></li>
             <li class="list-inline-item"><a href="#">TikTok</a></li>
