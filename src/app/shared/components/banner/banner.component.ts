@@ -52,7 +52,7 @@ export class BannerComponent implements AfterViewInit {
       subtitle: 'Integer euismod so lorem eu pretium',
       description:
         'Personalize hoodies, mugs, and more with your very own QR code — connect your style to your digital life.',
-      image: './images/slider-with-name-1.png',
+      image: './images/slider-img-1.png',
       bgColor: '#ceebd5',
       id: 1,
     },
@@ -61,7 +61,7 @@ export class BannerComponent implements AfterViewInit {
       subtitle: 'Integer euismod so lorem eu pretium',
       description:
         'Turn your merch into a scannable story. Let every outfit, mug, or case lead straight to your link, portfolio, or brand.',
-      image: './images/slider-with-name-2.png',
+      image: './images/slider-img-3.png',
       bgColor: '#ffdc62',
       id: 2,
     },
@@ -70,7 +70,7 @@ export class BannerComponent implements AfterViewInit {
       subtitle: 'Integer euismod so lorem eu pretium',
       description:
         'QR-powered products that blend creativity, personality, and technology — all in one scan.',
-      image: './images/slider-with-name-2.png',
+      image: './images/slider-img-2.png',
       bgColor: '#58320552',
       id: 3,
     },

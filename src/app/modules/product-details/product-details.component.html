@@ -132,7 +132,7 @@
                   }
                 </div>
 
-                <div class="radio__group">
+                <!-- <div class="radio__group">
                   @if (selectedSize()) {
                     @for (color of getColorsForSelectedSize(); track color) {
                       <button
@@ -144,7 +144,22 @@
                       </button>
                     }
                   }
-                </div>
+                </div> -->
+
+              <div class="radio__group">
+                @if (selectedSize()) {
+                  @for (color of getColorsForSelectedSize(); track color) {
+                    <button
+                      class="color__button"
+                      [class.active]="selectedColor() === color"
+                      (click)="selectColor(color)"
+                      [style.backgroundColor]="getHex(color)"
+                      [attr.title]="color"
+                    ></button>
+                  }
+                }
+              </div>
+
               </div>
               <div class="product__shopping mb-4">
                 <div class="input-group">
