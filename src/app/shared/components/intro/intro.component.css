@@ -48,6 +48,13 @@
     z-index: -1;
 }
 
+.about-image img {
+      width: 100%;
+    max-width: none;
+    height: 560px;
+    object-fit: cover;
+    border-radius: 20px;
+}
 @media screen and (max-width: 1540px) {
     .about-section .about-content h2 {
         font-size: 40px;
