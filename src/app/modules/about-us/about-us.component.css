@@ -340,7 +340,7 @@ ul.bullet-list-items.bullet-icons li.bullet-icon-5::before {
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 ul.bullet-list-items.bullet-icons li.bullet-icon-1::before { content: '✨'; }
@@ -360,10 +360,10 @@ ul.bullet-list-items.bullet-icons li.bullet-icon-5::before {
 
 /* Per-item icons: override the ::before background image per feature */
 /* Use the provided emoji icons inside the rounded bullet for these items */
-ul.bullet-list-items.bullet-icons li.icon-change::before {
+/* ul.bullet-list-items.bullet-icons li.icon-change::before {
   background-image: none;
   content: '✨';
-  font-size: 20px;
+  font-size: 28px;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -372,7 +372,7 @@ ul.bullet-list-items.bullet-icons li.icon-change::before {
 ul.bullet-list-items.bullet-icons li.icon-products::before {
   background-image: none;
   content: '🎨';
-  font-size: 20px;
+  font-size: 28px;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -404,7 +404,7 @@ ul.bullet-list-items.bullet-icons li.icon-control::before {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 
 .about-commodo-section {
