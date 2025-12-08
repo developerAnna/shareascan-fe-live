@@ -52,7 +52,7 @@ export class BannerComponent implements AfterViewInit {
       subtitle: 'Integer euismod so lorem eu pretium',
       description:
         'Personalize hoodies, mugs, and more with your very own QR code — connect your style to your digital life.',
-      image: './images/apron-slider.png',
+      image: './images/banner-slider.png',
       bgColor: '#ceebd5',
       id: 1,
     },
