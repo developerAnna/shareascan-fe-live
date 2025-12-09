@@ -32,7 +32,7 @@
     <div class="row align-items-center">
       <div class="col-lg-6">
         <div class="aboutduis-images position-relative">
-          <img src="images/aboutduis.png" alt="" />
+          <img src="images/about-us-tshirts.png" alt="" />
           <div class="uppar-text">
            Our Story
           </div>
@@ -136,7 +136,7 @@
         <div class="col-lg-6">
           <div class="about-scanme-block-left">
             <img
-              src="./images/about-us-img.png"
+              src="./images/about-us-image.png"
               alt="scan me"
               title="scan Me"
               class="img-fluid w-100"
@@ -259,13 +259,31 @@
         </div>
       </div> -->
       <div class="col-lg-6">
-        <div class="ratio ratio-16x9">
-          <video controls playsinline preload="metadata">
+        <div class="video-wrapper ratio ratio-16x9">
+          <img
+            src="./images/factory-video-thumbnail.jpg"
+            alt="Factory Thumbnail"
+            class="video-overlay"
+            (click)="playVideo()"
+          />
+          <div class="overlay-text" (click)="playVideo()">
+            <span>SEE OUR FACTORY</span>
+            <div class="play-icon">▶</div>
+          </div>
+
+          <video
+            #factoryVideo
+            controls
+            playsinline
+            preload="metadata"
+            class="factory-video"
+          >
             <source src="/video/our-factory.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
       </div>
+
 
     </div>
   </div>

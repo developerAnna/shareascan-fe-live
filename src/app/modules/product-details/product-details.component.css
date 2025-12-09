@@ -192,7 +192,7 @@
 .color__button.active {
   background: #000000;
   color: #ffffff;
-  border: 3px solid #000000;
+  border: 1px solid #000000;
 }
 .radio__button span {
   font-size: 12px;
