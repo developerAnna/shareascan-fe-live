@@ -153,7 +153,7 @@
 .radio__group {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
 }
 
 .radio__button {
@@ -188,6 +188,7 @@
   background-color: #fff;
   border: 1px solid #dcdcdc;
   color: #000000;
+  position: relative;
 }
 .color__button.active {
   background: #000000;
@@ -205,6 +206,35 @@
   span {
     color: #fff;
   }
+}
+
+.color__button:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 999;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.color__button:hover::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+  z-index: 999;
 }
 
 /* .radio__button label:before {
