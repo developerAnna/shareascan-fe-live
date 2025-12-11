@@ -197,7 +197,19 @@ export class ShopComponent implements OnInit, OnDestroy {
             this.isLoading.set(false);
             this.isLoadingMore.set(false);
             this.disableControls();
+            
+            setTimeout(() => {
+              const topSection = document.querySelector('section.p-lg-5');
+              if (topSection) {
+                topSection.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start',
+                });
+              }
+            }, 150); // enough time for DOM rendering
           },
+
+          
           error: (err: IError): void => {
             this.errorService.showErrors(err);
             this.isLoading.set(false);
